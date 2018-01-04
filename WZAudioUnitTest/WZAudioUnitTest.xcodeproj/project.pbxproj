@@ -1,0 +1,928 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		846A67401FFE3F9900BC6E44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A673F1FFE3F9900BC6E44 /* AppDelegate.m */; };
+		846A67431FFE3F9900BC6E44 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A67421FFE3F9900BC6E44 /* ViewController.m */; };
+		846A67461FFE3F9900BC6E44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846A67441FFE3F9900BC6E44 /* Main.storyboard */; };
+		846A67481FFE3F9900BC6E44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846A67471FFE3F9900BC6E44 /* Assets.xcassets */; };
+		846A674B1FFE3F9900BC6E44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846A67491FFE3F9900BC6E44 /* LaunchScreen.storyboard */; };
+		846A674E1FFE3F9900BC6E44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A674D1FFE3F9900BC6E44 /* main.m */; };
+		846A67581FFE3F9900BC6E44 /* WZAudioUnitTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A67571FFE3F9900BC6E44 /* WZAudioUnitTestTests.m */; };
+		846A67631FFE3F9A00BC6E44 /* WZAudioUnitTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A67621FFE3F9A00BC6E44 /* WZAudioUnitTestUITests.m */; };
+		846A67BE1FFE41D000BC6E44 /* WZAudioFileServicesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A67741FFE41D000BC6E44 /* WZAudioFileServicesController.m */; };
+		846A67BF1FFE41D000BC6E44 /* WZAudioFileServicesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846A67751FFE41D000BC6E44 /* WZAudioFileServicesController.xib */; };
+		846A67C01FFE41D000BC6E44 /* 01.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846A67771FFE41D000BC6E44 /* 01.caf */; };
+		846A67C11FFE41D000BC6E44 /* WZExtendedAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A67791FFE41D000BC6E44 /* WZExtendedAudioFile.m */; };
+		846A67C21FFE41D000BC6E44 /* WZExtendedAudioFile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846A677A1FFE41D000BC6E44 /* WZExtendedAudioFile.xib */; };
+		846A67C31FFE41D000BC6E44 /* WZAVCaptureAudioUnitEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 846A677E1FFE41D000BC6E44 /* WZAVCaptureAudioUnitEngine.mm */; };
+		846A67C41FFE41D000BC6E44 /* WZAVCaptureToAudioUnitController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 846A67801FFE41D000BC6E44 /* WZAVCaptureToAudioUnitController.mm */; };
+		846A67C51FFE41D000BC6E44 /* WZAVCaptureToAudioUnitController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846A67811FFE41D000BC6E44 /* WZAVCaptureToAudioUnitController.xib */; };
+		846A67C61FFE41D000BC6E44 /* WZGraphWithSamplerIOController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A67841FFE41D000BC6E44 /* WZGraphWithSamplerIOController.m */; };
+		846A67C71FFE41D000BC6E44 /* WZGraphWithSamplerIOController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846A67851FFE41D000BC6E44 /* WZGraphWithSamplerIOController.xib */; };
+		846A67C81FFE41D000BC6E44 /* WZMultichannelMixerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A67881FFE41D000BC6E44 /* WZMultichannelMixerController.m */; };
+		846A67C91FFE41D000BC6E44 /* WZMultichannelMixerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846A67891FFE41D000BC6E44 /* WZMultichannelMixerController.xib */; };
+		846A67CA1FFE41D000BC6E44 /* WZMultichannelMixerEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A678B1FFE41D000BC6E44 /* WZMultichannelMixerEngine.m */; };
+		846A67CB1FFE41D000BC6E44 /* abc.pcm in Resources */ = {isa = PBXBuildFile; fileRef = 846A678D1FFE41D000BC6E44 /* abc.pcm */; };
+		846A67CC1FFE41D000BC6E44 /* PCMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A678F1FFE41D000BC6E44 /* PCMPlayer.m */; };
+		846A67CD1FFE41D000BC6E44 /* WZPCMPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A67911FFE41D000BC6E44 /* WZPCMPlayerController.m */; };
+		846A67CE1FFE41D000BC6E44 /* WZIOPassThroughViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A67941FFE41D000BC6E44 /* WZIOPassThroughViewController.m */; };
+		846A67CF1FFE41D000BC6E44 /* WZIOPassThroughViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846A67951FFE41D000BC6E44 /* WZIOPassThroughViewController.xib */; };
+		846A67D01FFE41D000BC6E44 /* WZIORenderCallController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A67971FFE41D000BC6E44 /* WZIORenderCallController.m */; };
+		846A67D11FFE41D000BC6E44 /* WZIORenderCallController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846A67981FFE41D000BC6E44 /* WZIORenderCallController.xib */; };
+		846A67D21FFE41D000BC6E44 /* 1a#.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846A679F1FFE41D000BC6E44 /* 1a#.caf */; };
+		846A67D31FFE41D000BC6E44 /* 2a#.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846A67A01FFE41D000BC6E44 /* 2a#.caf */; };
+		846A67D41FFE41D000BC6E44 /* 3a#.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846A67A11FFE41D000BC6E44 /* 3a#.caf */; };
+		846A67D51FFE41D000BC6E44 /* 4g.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846A67A21FFE41D000BC6E44 /* 4g.caf */; };
+		846A67D61FFE41D000BC6E44 /* 5e.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846A67A31FFE41D000BC6E44 /* 5e.caf */; };
+		846A67D71FFE41D000BC6E44 /* Trombone.aupreset in Resources */ = {isa = PBXBuildFile; fileRef = 846A67A41FFE41D000BC6E44 /* Trombone.aupreset */; };
+		846A67D81FFE41D000BC6E44 /* Vibraphone.aupreset in Resources */ = {isa = PBXBuildFile; fileRef = 846A67A51FFE41D000BC6E44 /* Vibraphone.aupreset */; };
+		846A67D91FFE41D000BC6E44 /* DrumsMonoSTP.aif in Resources */ = {isa = PBXBuildFile; fileRef = 846A67A61FFE41D000BC6E44 /* DrumsMonoSTP.aif */; };
+		846A67DA1FFE41D000BC6E44 /* GuitarMonoSTP.aif in Resources */ = {isa = PBXBuildFile; fileRef = 846A67A71FFE41D000BC6E44 /* GuitarMonoSTP.aif */; };
+		846A67DB1FFE41D000BC6E44 /* Secretofmyheart.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 846A67A81FFE41D000BC6E44 /* Secretofmyheart.mp3 */; };
+		846A67DC1FFE41D000BC6E44 /* 小丑鱼.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 846A67A91FFE41D000BC6E44 /* 小丑鱼.mp3 */; };
+		846A67DD1FFE41D000BC6E44 /* 敢不敢.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 846A67AA1FFE41D000BC6E44 /* 敢不敢.mp3 */; };
+		846A67DE1FFE41D000BC6E44 /* 自我催眠.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 846A67AB1FFE41D000BC6E44 /* 自我催眠.mp3 */; };
+		846A67DF1FFE41D000BC6E44 /* AUOutputBL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846A67AE1FFE41D000BC6E44 /* AUOutputBL.cpp */; };
+		846A67E01FFE41D000BC6E44 /* CAAudioBufferList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846A67B01FFE41D000BC6E44 /* CAAudioBufferList.cpp */; };
+		846A67E11FFE41D000BC6E44 /* CAComponentDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846A67B31FFE41D000BC6E44 /* CAComponentDescription.cpp */; };
+		846A67E21FFE41D000BC6E44 /* CADebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846A67B61FFE41D000BC6E44 /* CADebugMacros.cpp */; };
+		846A67E31FFE41D000BC6E44 /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846A67BA1FFE41D000BC6E44 /* CAStreamBasicDescription.cpp */; };
+		846A67E41FFE41D000BC6E44 /* CAXException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846A67BC1FFE41D000BC6E44 /* CAXException.cpp */; };
+		846A67E71FFE427900BC6E44 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 846A67E61FFE427900BC6E44 /* AudioToolbox.framework */; };
+		846A67E91FFE427F00BC6E44 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 846A67E81FFE427F00BC6E44 /* CoreAudio.framework */; };
+		846A67ED1FFE428B00BC6E44 /* CoreAudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 846A67EC1FFE428B00BC6E44 /* CoreAudioKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		846A67541FFE3F9900BC6E44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 846A67331FFE3F9900BC6E44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 846A673A1FFE3F9900BC6E44;
+			remoteInfo = WZAudioUnitTest;
+		};
+		846A675F1FFE3F9A00BC6E44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 846A67331FFE3F9900BC6E44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 846A673A1FFE3F9900BC6E44;
+			remoteInfo = WZAudioUnitTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		846A673B1FFE3F9900BC6E44 /* WZAudioUnitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WZAudioUnitTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		846A673E1FFE3F9900BC6E44 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		846A673F1FFE3F9900BC6E44 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		846A67411FFE3F9900BC6E44 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		846A67421FFE3F9900BC6E44 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		846A67451FFE3F9900BC6E44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		846A67471FFE3F9900BC6E44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		846A674A1FFE3F9900BC6E44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		846A674C1FFE3F9900BC6E44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		846A674D1FFE3F9900BC6E44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		846A67531FFE3F9900BC6E44 /* WZAudioUnitTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WZAudioUnitTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		846A67571FFE3F9900BC6E44 /* WZAudioUnitTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WZAudioUnitTestTests.m; sourceTree = "<group>"; };
+		846A67591FFE3F9900BC6E44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		846A675E1FFE3F9A00BC6E44 /* WZAudioUnitTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WZAudioUnitTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		846A67621FFE3F9A00BC6E44 /* WZAudioUnitTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WZAudioUnitTestUITests.m; sourceTree = "<group>"; };
+		846A67641FFE3F9A00BC6E44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		846A67731FFE41D000BC6E44 /* WZAudioFileServicesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZAudioFileServicesController.h; sourceTree = "<group>"; };
+		846A67741FFE41D000BC6E44 /* WZAudioFileServicesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZAudioFileServicesController.m; sourceTree = "<group>"; };
+		846A67751FFE41D000BC6E44 /* WZAudioFileServicesController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WZAudioFileServicesController.xib; sourceTree = "<group>"; };
+		846A67771FFE41D000BC6E44 /* 01.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 01.caf; sourceTree = "<group>"; };
+		846A67781FFE41D000BC6E44 /* WZExtendedAudioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZExtendedAudioFile.h; sourceTree = "<group>"; };
+		846A67791FFE41D000BC6E44 /* WZExtendedAudioFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZExtendedAudioFile.m; sourceTree = "<group>"; };
+		846A677A1FFE41D000BC6E44 /* WZExtendedAudioFile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WZExtendedAudioFile.xib; sourceTree = "<group>"; };
+		846A677D1FFE41D000BC6E44 /* WZAVCaptureAudioUnitEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZAVCaptureAudioUnitEngine.h; sourceTree = "<group>"; };
+		846A677E1FFE41D000BC6E44 /* WZAVCaptureAudioUnitEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WZAVCaptureAudioUnitEngine.mm; sourceTree = "<group>"; };
+		846A677F1FFE41D000BC6E44 /* WZAVCaptureToAudioUnitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZAVCaptureToAudioUnitController.h; sourceTree = "<group>"; };
+		846A67801FFE41D000BC6E44 /* WZAVCaptureToAudioUnitController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WZAVCaptureToAudioUnitController.mm; sourceTree = "<group>"; };
+		846A67811FFE41D000BC6E44 /* WZAVCaptureToAudioUnitController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WZAVCaptureToAudioUnitController.xib; sourceTree = "<group>"; };
+		846A67831FFE41D000BC6E44 /* WZGraphWithSamplerIOController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZGraphWithSamplerIOController.h; sourceTree = "<group>"; };
+		846A67841FFE41D000BC6E44 /* WZGraphWithSamplerIOController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZGraphWithSamplerIOController.m; sourceTree = "<group>"; };
+		846A67851FFE41D000BC6E44 /* WZGraphWithSamplerIOController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WZGraphWithSamplerIOController.xib; sourceTree = "<group>"; };
+		846A67871FFE41D000BC6E44 /* WZMultichannelMixerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMultichannelMixerController.h; sourceTree = "<group>"; };
+		846A67881FFE41D000BC6E44 /* WZMultichannelMixerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMultichannelMixerController.m; sourceTree = "<group>"; };
+		846A67891FFE41D000BC6E44 /* WZMultichannelMixerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WZMultichannelMixerController.xib; sourceTree = "<group>"; };
+		846A678A1FFE41D000BC6E44 /* WZMultichannelMixerEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMultichannelMixerEngine.h; sourceTree = "<group>"; };
+		846A678B1FFE41D000BC6E44 /* WZMultichannelMixerEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMultichannelMixerEngine.m; sourceTree = "<group>"; };
+		846A678D1FFE41D000BC6E44 /* abc.pcm */ = {isa = PBXFileReference; lastKnownFileType = file; path = abc.pcm; sourceTree = "<group>"; };
+		846A678E1FFE41D000BC6E44 /* PCMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCMPlayer.h; sourceTree = "<group>"; };
+		846A678F1FFE41D000BC6E44 /* PCMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCMPlayer.m; sourceTree = "<group>"; };
+		846A67901FFE41D000BC6E44 /* WZPCMPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZPCMPlayerController.h; sourceTree = "<group>"; };
+		846A67911FFE41D000BC6E44 /* WZPCMPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZPCMPlayerController.m; sourceTree = "<group>"; };
+		846A67931FFE41D000BC6E44 /* WZIOPassThroughViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZIOPassThroughViewController.h; sourceTree = "<group>"; };
+		846A67941FFE41D000BC6E44 /* WZIOPassThroughViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZIOPassThroughViewController.m; sourceTree = "<group>"; };
+		846A67951FFE41D000BC6E44 /* WZIOPassThroughViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WZIOPassThroughViewController.xib; sourceTree = "<group>"; };
+		846A67961FFE41D000BC6E44 /* WZIORenderCallController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZIORenderCallController.h; sourceTree = "<group>"; };
+		846A67971FFE41D000BC6E44 /* WZIORenderCallController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZIORenderCallController.m; sourceTree = "<group>"; };
+		846A67981FFE41D000BC6E44 /* WZIORenderCallController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WZIORenderCallController.xib; sourceTree = "<group>"; };
+		846A679F1FFE41D000BC6E44 /* 1a#.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "1a#.caf"; sourceTree = "<group>"; };
+		846A67A01FFE41D000BC6E44 /* 2a#.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "2a#.caf"; sourceTree = "<group>"; };
+		846A67A11FFE41D000BC6E44 /* 3a#.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "3a#.caf"; sourceTree = "<group>"; };
+		846A67A21FFE41D000BC6E44 /* 4g.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4g.caf; sourceTree = "<group>"; };
+		846A67A31FFE41D000BC6E44 /* 5e.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5e.caf; sourceTree = "<group>"; };
+		846A67A41FFE41D000BC6E44 /* Trombone.aupreset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Trombone.aupreset; sourceTree = "<group>"; };
+		846A67A51FFE41D000BC6E44 /* Vibraphone.aupreset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Vibraphone.aupreset; sourceTree = "<group>"; };
+		846A67A61FFE41D000BC6E44 /* DrumsMonoSTP.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = DrumsMonoSTP.aif; sourceTree = "<group>"; };
+		846A67A71FFE41D000BC6E44 /* GuitarMonoSTP.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = GuitarMonoSTP.aif; sourceTree = "<group>"; };
+		846A67A81FFE41D000BC6E44 /* Secretofmyheart.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Secretofmyheart.mp3; sourceTree = "<group>"; };
+		846A67A91FFE41D000BC6E44 /* 小丑鱼.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "小丑鱼.mp3"; sourceTree = "<group>"; };
+		846A67AA1FFE41D000BC6E44 /* 敢不敢.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "敢不敢.mp3"; sourceTree = "<group>"; };
+		846A67AB1FFE41D000BC6E44 /* 自我催眠.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "自我催眠.mp3"; sourceTree = "<group>"; };
+		846A67AE1FFE41D000BC6E44 /* AUOutputBL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AUOutputBL.cpp; sourceTree = "<group>"; };
+		846A67AF1FFE41D000BC6E44 /* AUOutputBL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUOutputBL.h; sourceTree = "<group>"; };
+		846A67B01FFE41D000BC6E44 /* CAAudioBufferList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAAudioBufferList.cpp; sourceTree = "<group>"; };
+		846A67B11FFE41D000BC6E44 /* CAAudioBufferList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAAudioBufferList.h; sourceTree = "<group>"; };
+		846A67B21FFE41D000BC6E44 /* CACFDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CACFDictionary.h; sourceTree = "<group>"; };
+		846A67B31FFE41D000BC6E44 /* CAComponentDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAComponentDescription.cpp; sourceTree = "<group>"; };
+		846A67B41FFE41D000BC6E44 /* CAComponentDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAComponentDescription.h; sourceTree = "<group>"; };
+		846A67B51FFE41D000BC6E44 /* CADebugger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugger.h; sourceTree = "<group>"; };
+		846A67B61FFE41D000BC6E44 /* CADebugMacros.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CADebugMacros.cpp; sourceTree = "<group>"; };
+		846A67B71FFE41D000BC6E44 /* CADebugMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugMacros.h; sourceTree = "<group>"; };
+		846A67B81FFE41D000BC6E44 /* CALogMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CALogMacros.h; sourceTree = "<group>"; };
+		846A67B91FFE41D000BC6E44 /* CAMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAMath.h; sourceTree = "<group>"; };
+		846A67BA1FFE41D000BC6E44 /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAStreamBasicDescription.cpp; sourceTree = "<group>"; };
+		846A67BB1FFE41D000BC6E44 /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAStreamBasicDescription.h; sourceTree = "<group>"; };
+		846A67BC1FFE41D000BC6E44 /* CAXException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAXException.cpp; sourceTree = "<group>"; };
+		846A67BD1FFE41D000BC6E44 /* CAXException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAXException.h; sourceTree = "<group>"; };
+		846A67E61FFE427900BC6E44 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		846A67E81FFE427F00BC6E44 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		846A67EA1FFE428600BC6E44 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		846A67EC1FFE428B00BC6E44 /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
+		846A67EE1FFE435F00BC6E44 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		846A67381FFE3F9900BC6E44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				846A67ED1FFE428B00BC6E44 /* CoreAudioKit.framework in Frameworks */,
+				846A67E91FFE427F00BC6E44 /* CoreAudio.framework in Frameworks */,
+				846A67E71FFE427900BC6E44 /* AudioToolbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		846A67501FFE3F9900BC6E44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		846A675B1FFE3F9A00BC6E44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		846A67321FFE3F9900BC6E44 = {
+			isa = PBXGroup;
+			children = (
+				846A67701FFE41D000BC6E44 /* 音频处理 */,
+				846A673D1FFE3F9900BC6E44 /* WZAudioUnitTest */,
+				846A67561FFE3F9900BC6E44 /* WZAudioUnitTestTests */,
+				846A67611FFE3F9A00BC6E44 /* WZAudioUnitTestUITests */,
+				846A673C1FFE3F9900BC6E44 /* Products */,
+				846A67E51FFE427900BC6E44 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		846A673C1FFE3F9900BC6E44 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				846A673B1FFE3F9900BC6E44 /* WZAudioUnitTest.app */,
+				846A67531FFE3F9900BC6E44 /* WZAudioUnitTestTests.xctest */,
+				846A675E1FFE3F9A00BC6E44 /* WZAudioUnitTestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		846A673D1FFE3F9900BC6E44 /* WZAudioUnitTest */ = {
+			isa = PBXGroup;
+			children = (
+				846A673E1FFE3F9900BC6E44 /* AppDelegate.h */,
+				846A673F1FFE3F9900BC6E44 /* AppDelegate.m */,
+				846A67411FFE3F9900BC6E44 /* ViewController.h */,
+				846A67421FFE3F9900BC6E44 /* ViewController.m */,
+				846A67EE1FFE435F00BC6E44 /* PrefixHeader.pch */,
+				846A67441FFE3F9900BC6E44 /* Main.storyboard */,
+				846A67471FFE3F9900BC6E44 /* Assets.xcassets */,
+				846A67491FFE3F9900BC6E44 /* LaunchScreen.storyboard */,
+				846A674C1FFE3F9900BC6E44 /* Info.plist */,
+				846A674D1FFE3F9900BC6E44 /* main.m */,
+			);
+			path = WZAudioUnitTest;
+			sourceTree = "<group>";
+		};
+		846A67561FFE3F9900BC6E44 /* WZAudioUnitTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				846A67571FFE3F9900BC6E44 /* WZAudioUnitTestTests.m */,
+				846A67591FFE3F9900BC6E44 /* Info.plist */,
+			);
+			path = WZAudioUnitTestTests;
+			sourceTree = "<group>";
+		};
+		846A67611FFE3F9A00BC6E44 /* WZAudioUnitTestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				846A67621FFE3F9A00BC6E44 /* WZAudioUnitTestUITests.m */,
+				846A67641FFE3F9A00BC6E44 /* Info.plist */,
+			);
+			path = WZAudioUnitTestUITests;
+			sourceTree = "<group>";
+		};
+		846A67701FFE41D000BC6E44 /* 音频处理 */ = {
+			isa = PBXGroup;
+			children = (
+				846A67711FFE41D000BC6E44 /* AudioToolbox */,
+				846A677B1FFE41D000BC6E44 /* AuidoUnit */,
+				846A67991FFE41D000BC6E44 /* PublicUtility */,
+				846A679A1FFE41D000BC6E44 /* 素材 */,
+				846A67AC1FFE41D000BC6E44 /* 苹果的通用文件 */,
+			);
+			path = "音频处理";
+			sourceTree = "<group>";
+		};
+		846A67711FFE41D000BC6E44 /* AudioToolbox */ = {
+			isa = PBXGroup;
+			children = (
+				846A67721FFE41D000BC6E44 /* AudioFile */,
+				846A67761FFE41D000BC6E44 /* ExtendedAudioFile */,
+			);
+			path = AudioToolbox;
+			sourceTree = "<group>";
+		};
+		846A67721FFE41D000BC6E44 /* AudioFile */ = {
+			isa = PBXGroup;
+			children = (
+				846A67731FFE41D000BC6E44 /* WZAudioFileServicesController.h */,
+				846A67741FFE41D000BC6E44 /* WZAudioFileServicesController.m */,
+				846A67751FFE41D000BC6E44 /* WZAudioFileServicesController.xib */,
+			);
+			path = AudioFile;
+			sourceTree = "<group>";
+		};
+		846A67761FFE41D000BC6E44 /* ExtendedAudioFile */ = {
+			isa = PBXGroup;
+			children = (
+				846A67771FFE41D000BC6E44 /* 01.caf */,
+				846A67781FFE41D000BC6E44 /* WZExtendedAudioFile.h */,
+				846A67791FFE41D000BC6E44 /* WZExtendedAudioFile.m */,
+				846A677A1FFE41D000BC6E44 /* WZExtendedAudioFile.xib */,
+			);
+			path = ExtendedAudioFile;
+			sourceTree = "<group>";
+		};
+		846A677B1FFE41D000BC6E44 /* AuidoUnit */ = {
+			isa = PBXGroup;
+			children = (
+				846A677C1FFE41D000BC6E44 /* AVCaptureSession录音 */,
+				846A67821FFE41D000BC6E44 /* MIDI */,
+				846A67861FFE41D000BC6E44 /* 多通道 */,
+				846A678C1FFE41D000BC6E44 /* 播放PCM */,
+				846A67921FFE41D000BC6E44 /* 直通流 */,
+			);
+			path = AuidoUnit;
+			sourceTree = "<group>";
+		};
+		846A677C1FFE41D000BC6E44 /* AVCaptureSession录音 */ = {
+			isa = PBXGroup;
+			children = (
+				846A677D1FFE41D000BC6E44 /* WZAVCaptureAudioUnitEngine.h */,
+				846A677E1FFE41D000BC6E44 /* WZAVCaptureAudioUnitEngine.mm */,
+				846A677F1FFE41D000BC6E44 /* WZAVCaptureToAudioUnitController.h */,
+				846A67801FFE41D000BC6E44 /* WZAVCaptureToAudioUnitController.mm */,
+				846A67811FFE41D000BC6E44 /* WZAVCaptureToAudioUnitController.xib */,
+			);
+			path = "AVCaptureSession录音";
+			sourceTree = "<group>";
+		};
+		846A67821FFE41D000BC6E44 /* MIDI */ = {
+			isa = PBXGroup;
+			children = (
+				846A67831FFE41D000BC6E44 /* WZGraphWithSamplerIOController.h */,
+				846A67841FFE41D000BC6E44 /* WZGraphWithSamplerIOController.m */,
+				846A67851FFE41D000BC6E44 /* WZGraphWithSamplerIOController.xib */,
+			);
+			path = MIDI;
+			sourceTree = "<group>";
+		};
+		846A67861FFE41D000BC6E44 /* 多通道 */ = {
+			isa = PBXGroup;
+			children = (
+				846A67871FFE41D000BC6E44 /* WZMultichannelMixerController.h */,
+				846A67881FFE41D000BC6E44 /* WZMultichannelMixerController.m */,
+				846A67891FFE41D000BC6E44 /* WZMultichannelMixerController.xib */,
+				846A678A1FFE41D000BC6E44 /* WZMultichannelMixerEngine.h */,
+				846A678B1FFE41D000BC6E44 /* WZMultichannelMixerEngine.m */,
+			);
+			path = "多通道";
+			sourceTree = "<group>";
+		};
+		846A678C1FFE41D000BC6E44 /* 播放PCM */ = {
+			isa = PBXGroup;
+			children = (
+				846A678D1FFE41D000BC6E44 /* abc.pcm */,
+				846A678E1FFE41D000BC6E44 /* PCMPlayer.h */,
+				846A678F1FFE41D000BC6E44 /* PCMPlayer.m */,
+				846A67901FFE41D000BC6E44 /* WZPCMPlayerController.h */,
+				846A67911FFE41D000BC6E44 /* WZPCMPlayerController.m */,
+			);
+			path = "播放PCM";
+			sourceTree = "<group>";
+		};
+		846A67921FFE41D000BC6E44 /* 直通流 */ = {
+			isa = PBXGroup;
+			children = (
+				846A67931FFE41D000BC6E44 /* WZIOPassThroughViewController.h */,
+				846A67941FFE41D000BC6E44 /* WZIOPassThroughViewController.m */,
+				846A67951FFE41D000BC6E44 /* WZIOPassThroughViewController.xib */,
+				846A67961FFE41D000BC6E44 /* WZIORenderCallController.h */,
+				846A67971FFE41D000BC6E44 /* WZIORenderCallController.m */,
+				846A67981FFE41D000BC6E44 /* WZIORenderCallController.xib */,
+			);
+			path = "直通流";
+			sourceTree = "<group>";
+		};
+		846A67991FFE41D000BC6E44 /* PublicUtility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PublicUtility;
+			sourceTree = "<group>";
+		};
+		846A679A1FFE41D000BC6E44 /* 素材 */ = {
+			isa = PBXGroup;
+			children = (
+				846A679B1FFE41D000BC6E44 /* AUPreset */,
+				846A67A61FFE41D000BC6E44 /* DrumsMonoSTP.aif */,
+				846A67A71FFE41D000BC6E44 /* GuitarMonoSTP.aif */,
+				846A67A81FFE41D000BC6E44 /* Secretofmyheart.mp3 */,
+				846A67A91FFE41D000BC6E44 /* 小丑鱼.mp3 */,
+				846A67AA1FFE41D000BC6E44 /* 敢不敢.mp3 */,
+				846A67AB1FFE41D000BC6E44 /* 自我催眠.mp3 */,
+			);
+			path = "素材";
+			sourceTree = "<group>";
+		};
+		846A679B1FFE41D000BC6E44 /* AUPreset */ = {
+			isa = PBXGroup;
+			children = (
+				846A679C1FFE41D000BC6E44 /* Tbone */,
+				846A67A51FFE41D000BC6E44 /* Vibraphone.aupreset */,
+			);
+			path = AUPreset;
+			sourceTree = "<group>";
+		};
+		846A679C1FFE41D000BC6E44 /* Tbone */ = {
+			isa = PBXGroup;
+			children = (
+				846A679D1FFE41D000BC6E44 /* Sounds */,
+				846A67A41FFE41D000BC6E44 /* Trombone.aupreset */,
+			);
+			path = Tbone;
+			sourceTree = "<group>";
+		};
+		846A679D1FFE41D000BC6E44 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				846A679E1FFE41D000BC6E44 /* Tbone */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		846A679E1FFE41D000BC6E44 /* Tbone */ = {
+			isa = PBXGroup;
+			children = (
+				846A679F1FFE41D000BC6E44 /* 1a#.caf */,
+				846A67A01FFE41D000BC6E44 /* 2a#.caf */,
+				846A67A11FFE41D000BC6E44 /* 3a#.caf */,
+				846A67A21FFE41D000BC6E44 /* 4g.caf */,
+				846A67A31FFE41D000BC6E44 /* 5e.caf */,
+			);
+			path = Tbone;
+			sourceTree = "<group>";
+		};
+		846A67AC1FFE41D000BC6E44 /* 苹果的通用文件 */ = {
+			isa = PBXGroup;
+			children = (
+				846A67AD1FFE41D000BC6E44 /* PublicUtility */,
+			);
+			path = "苹果的通用文件";
+			sourceTree = "<group>";
+		};
+		846A67AD1FFE41D000BC6E44 /* PublicUtility */ = {
+			isa = PBXGroup;
+			children = (
+				846A67AE1FFE41D000BC6E44 /* AUOutputBL.cpp */,
+				846A67AF1FFE41D000BC6E44 /* AUOutputBL.h */,
+				846A67B01FFE41D000BC6E44 /* CAAudioBufferList.cpp */,
+				846A67B11FFE41D000BC6E44 /* CAAudioBufferList.h */,
+				846A67B21FFE41D000BC6E44 /* CACFDictionary.h */,
+				846A67B31FFE41D000BC6E44 /* CAComponentDescription.cpp */,
+				846A67B41FFE41D000BC6E44 /* CAComponentDescription.h */,
+				846A67B51FFE41D000BC6E44 /* CADebugger.h */,
+				846A67B61FFE41D000BC6E44 /* CADebugMacros.cpp */,
+				846A67B71FFE41D000BC6E44 /* CADebugMacros.h */,
+				846A67B81FFE41D000BC6E44 /* CALogMacros.h */,
+				846A67B91FFE41D000BC6E44 /* CAMath.h */,
+				846A67BA1FFE41D000BC6E44 /* CAStreamBasicDescription.cpp */,
+				846A67BB1FFE41D000BC6E44 /* CAStreamBasicDescription.h */,
+				846A67BC1FFE41D000BC6E44 /* CAXException.cpp */,
+				846A67BD1FFE41D000BC6E44 /* CAXException.h */,
+			);
+			path = PublicUtility;
+			sourceTree = "<group>";
+		};
+		846A67E51FFE427900BC6E44 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				846A67EC1FFE428B00BC6E44 /* CoreAudioKit.framework */,
+				846A67EA1FFE428600BC6E44 /* AudioUnit.framework */,
+				846A67E81FFE427F00BC6E44 /* CoreAudio.framework */,
+				846A67E61FFE427900BC6E44 /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		846A673A1FFE3F9900BC6E44 /* WZAudioUnitTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 846A67671FFE3F9A00BC6E44 /* Build configuration list for PBXNativeTarget "WZAudioUnitTest" */;
+			buildPhases = (
+				846A67371FFE3F9900BC6E44 /* Sources */,
+				846A67381FFE3F9900BC6E44 /* Frameworks */,
+				846A67391FFE3F9900BC6E44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WZAudioUnitTest;
+			productName = WZAudioUnitTest;
+			productReference = 846A673B1FFE3F9900BC6E44 /* WZAudioUnitTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		846A67521FFE3F9900BC6E44 /* WZAudioUnitTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 846A676A1FFE3F9A00BC6E44 /* Build configuration list for PBXNativeTarget "WZAudioUnitTestTests" */;
+			buildPhases = (
+				846A674F1FFE3F9900BC6E44 /* Sources */,
+				846A67501FFE3F9900BC6E44 /* Frameworks */,
+				846A67511FFE3F9900BC6E44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				846A67551FFE3F9900BC6E44 /* PBXTargetDependency */,
+			);
+			name = WZAudioUnitTestTests;
+			productName = WZAudioUnitTestTests;
+			productReference = 846A67531FFE3F9900BC6E44 /* WZAudioUnitTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		846A675D1FFE3F9A00BC6E44 /* WZAudioUnitTestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 846A676D1FFE3F9A00BC6E44 /* Build configuration list for PBXNativeTarget "WZAudioUnitTestUITests" */;
+			buildPhases = (
+				846A675A1FFE3F9A00BC6E44 /* Sources */,
+				846A675B1FFE3F9A00BC6E44 /* Frameworks */,
+				846A675C1FFE3F9A00BC6E44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				846A67601FFE3F9A00BC6E44 /* PBXTargetDependency */,
+			);
+			name = WZAudioUnitTestUITests;
+			productName = WZAudioUnitTestUITests;
+			productReference = 846A675E1FFE3F9A00BC6E44 /* WZAudioUnitTestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		846A67331FFE3F9900BC6E44 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = wizet;
+				TargetAttributes = {
+					846A673A1FFE3F9900BC6E44 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					846A67521FFE3F9900BC6E44 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 846A673A1FFE3F9900BC6E44;
+					};
+					846A675D1FFE3F9A00BC6E44 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 846A673A1FFE3F9900BC6E44;
+					};
+				};
+			};
+			buildConfigurationList = 846A67361FFE3F9900BC6E44 /* Build configuration list for PBXProject "WZAudioUnitTest" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 846A67321FFE3F9900BC6E44;
+			productRefGroup = 846A673C1FFE3F9900BC6E44 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				846A673A1FFE3F9900BC6E44 /* WZAudioUnitTest */,
+				846A67521FFE3F9900BC6E44 /* WZAudioUnitTestTests */,
+				846A675D1FFE3F9A00BC6E44 /* WZAudioUnitTestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		846A67391FFE3F9900BC6E44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				846A67C01FFE41D000BC6E44 /* 01.caf in Resources */,
+				846A67C91FFE41D000BC6E44 /* WZMultichannelMixerController.xib in Resources */,
+				846A67DB1FFE41D000BC6E44 /* Secretofmyheart.mp3 in Resources */,
+				846A674B1FFE3F9900BC6E44 /* LaunchScreen.storyboard in Resources */,
+				846A67C71FFE41D000BC6E44 /* WZGraphWithSamplerIOController.xib in Resources */,
+				846A67481FFE3F9900BC6E44 /* Assets.xcassets in Resources */,
+				846A67DD1FFE41D000BC6E44 /* 敢不敢.mp3 in Resources */,
+				846A67DC1FFE41D000BC6E44 /* 小丑鱼.mp3 in Resources */,
+				846A67D31FFE41D000BC6E44 /* 2a#.caf in Resources */,
+				846A67461FFE3F9900BC6E44 /* Main.storyboard in Resources */,
+				846A67DE1FFE41D000BC6E44 /* 自我催眠.mp3 in Resources */,
+				846A67C21FFE41D000BC6E44 /* WZExtendedAudioFile.xib in Resources */,
+				846A67C51FFE41D000BC6E44 /* WZAVCaptureToAudioUnitController.xib in Resources */,
+				846A67D51FFE41D000BC6E44 /* 4g.caf in Resources */,
+				846A67D71FFE41D000BC6E44 /* Trombone.aupreset in Resources */,
+				846A67D21FFE41D000BC6E44 /* 1a#.caf in Resources */,
+				846A67BF1FFE41D000BC6E44 /* WZAudioFileServicesController.xib in Resources */,
+				846A67D91FFE41D000BC6E44 /* DrumsMonoSTP.aif in Resources */,
+				846A67CF1FFE41D000BC6E44 /* WZIOPassThroughViewController.xib in Resources */,
+				846A67D41FFE41D000BC6E44 /* 3a#.caf in Resources */,
+				846A67D11FFE41D000BC6E44 /* WZIORenderCallController.xib in Resources */,
+				846A67DA1FFE41D000BC6E44 /* GuitarMonoSTP.aif in Resources */,
+				846A67D81FFE41D000BC6E44 /* Vibraphone.aupreset in Resources */,
+				846A67CB1FFE41D000BC6E44 /* abc.pcm in Resources */,
+				846A67D61FFE41D000BC6E44 /* 5e.caf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		846A67511FFE3F9900BC6E44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		846A675C1FFE3F9A00BC6E44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		846A67371FFE3F9900BC6E44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				846A67E41FFE41D000BC6E44 /* CAXException.cpp in Sources */,
+				846A67CA1FFE41D000BC6E44 /* WZMultichannelMixerEngine.m in Sources */,
+				846A67431FFE3F9900BC6E44 /* ViewController.m in Sources */,
+				846A67E01FFE41D000BC6E44 /* CAAudioBufferList.cpp in Sources */,
+				846A67CC1FFE41D000BC6E44 /* PCMPlayer.m in Sources */,
+				846A67E11FFE41D000BC6E44 /* CAComponentDescription.cpp in Sources */,
+				846A67BE1FFE41D000BC6E44 /* WZAudioFileServicesController.m in Sources */,
+				846A67CD1FFE41D000BC6E44 /* WZPCMPlayerController.m in Sources */,
+				846A67C11FFE41D000BC6E44 /* WZExtendedAudioFile.m in Sources */,
+				846A67D01FFE41D000BC6E44 /* WZIORenderCallController.m in Sources */,
+				846A67C41FFE41D000BC6E44 /* WZAVCaptureToAudioUnitController.mm in Sources */,
+				846A67CE1FFE41D000BC6E44 /* WZIOPassThroughViewController.m in Sources */,
+				846A67C61FFE41D000BC6E44 /* WZGraphWithSamplerIOController.m in Sources */,
+				846A67E31FFE41D000BC6E44 /* CAStreamBasicDescription.cpp in Sources */,
+				846A67C31FFE41D000BC6E44 /* WZAVCaptureAudioUnitEngine.mm in Sources */,
+				846A674E1FFE3F9900BC6E44 /* main.m in Sources */,
+				846A67DF1FFE41D000BC6E44 /* AUOutputBL.cpp in Sources */,
+				846A67401FFE3F9900BC6E44 /* AppDelegate.m in Sources */,
+				846A67E21FFE41D000BC6E44 /* CADebugMacros.cpp in Sources */,
+				846A67C81FFE41D000BC6E44 /* WZMultichannelMixerController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		846A674F1FFE3F9900BC6E44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				846A67581FFE3F9900BC6E44 /* WZAudioUnitTestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		846A675A1FFE3F9A00BC6E44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				846A67631FFE3F9A00BC6E44 /* WZAudioUnitTestUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		846A67551FFE3F9900BC6E44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 846A673A1FFE3F9900BC6E44 /* WZAudioUnitTest */;
+			targetProxy = 846A67541FFE3F9900BC6E44 /* PBXContainerItemProxy */;
+		};
+		846A67601FFE3F9A00BC6E44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 846A673A1FFE3F9900BC6E44 /* WZAudioUnitTest */;
+			targetProxy = 846A675F1FFE3F9A00BC6E44 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		846A67441FFE3F9900BC6E44 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				846A67451FFE3F9900BC6E44 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		846A67491FFE3F9900BC6E44 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				846A674A1FFE3F9900BC6E44 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		846A67651FFE3F9A00BC6E44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		846A67661FFE3F9A00BC6E44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		846A67681FFE3F9A00BC6E44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7MUPB6659U;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/WZAudioUnitTest/PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				INFOPLIST_FILE = WZAudioUnitTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = wizet.WZAudioUnitTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		846A67691FFE3F9A00BC6E44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7MUPB6659U;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/WZAudioUnitTest/PrefixHeader.pch";
+				INFOPLIST_FILE = WZAudioUnitTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = wizet.WZAudioUnitTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		846A676B1FFE3F9A00BC6E44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7MUPB6659U;
+				INFOPLIST_FILE = WZAudioUnitTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = wizet.WZAudioUnitTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WZAudioUnitTest.app/WZAudioUnitTest";
+			};
+			name = Debug;
+		};
+		846A676C1FFE3F9A00BC6E44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7MUPB6659U;
+				INFOPLIST_FILE = WZAudioUnitTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = wizet.WZAudioUnitTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WZAudioUnitTest.app/WZAudioUnitTest";
+			};
+			name = Release;
+		};
+		846A676E1FFE3F9A00BC6E44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7MUPB6659U;
+				INFOPLIST_FILE = WZAudioUnitTestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = wizet.WZAudioUnitTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WZAudioUnitTest;
+			};
+			name = Debug;
+		};
+		846A676F1FFE3F9A00BC6E44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7MUPB6659U;
+				INFOPLIST_FILE = WZAudioUnitTestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = wizet.WZAudioUnitTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WZAudioUnitTest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		846A67361FFE3F9900BC6E44 /* Build configuration list for PBXProject "WZAudioUnitTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				846A67651FFE3F9A00BC6E44 /* Debug */,
+				846A67661FFE3F9A00BC6E44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		846A67671FFE3F9A00BC6E44 /* Build configuration list for PBXNativeTarget "WZAudioUnitTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				846A67681FFE3F9A00BC6E44 /* Debug */,
+				846A67691FFE3F9A00BC6E44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		846A676A1FFE3F9A00BC6E44 /* Build configuration list for PBXNativeTarget "WZAudioUnitTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				846A676B1FFE3F9A00BC6E44 /* Debug */,
+				846A676C1FFE3F9A00BC6E44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		846A676D1FFE3F9A00BC6E44 /* Build configuration list for PBXNativeTarget "WZAudioUnitTestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				846A676E1FFE3F9A00BC6E44 /* Debug */,
+				846A676F1FFE3F9A00BC6E44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 846A67331FFE3F9900BC6E44 /* Project object */;
+}
