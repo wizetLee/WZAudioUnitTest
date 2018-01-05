@@ -44,6 +44,7 @@ const uint32_t CONST_BUFFER_SIZE = 0x10000;
 
 - (void)play {
 
+    //source
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"abc" withExtension:@"pcm"];
     inputSteam = [NSInputStream inputStreamWithURL:url];
     if (!inputSteam) {
@@ -62,13 +63,13 @@ const uint32_t CONST_BUFFER_SIZE = 0x10000;
     [audioSession setCategory:AVAudioSessionCategoryPlayback error:&error];
    
     AudioComponentDescription ioUnitDescription;
+    ioUnitDescription.componentManufacturer = kAudioUnitManufacturer_Apple;
+    ioUnitDescription.componentFlags = 0;
+    ioUnitDescription.componentFlagsMask = 0;
     {//配置唯一ID
         ioUnitDescription.componentType = kAudioUnitType_Output;
         ioUnitDescription.componentSubType = kAudioUnitSubType_RemoteIO;
-        ioUnitDescription.componentManufacturer = kAudioUnitManufacturer_Apple;
     }
-    ioUnitDescription.componentFlags = 0;
-    ioUnitDescription.componentFlagsMask = 0;
     
     //定义音频单元的动态链接库的引用 The result of the AudioComponentFindNext function is a reference to the dynamically-linkable library that defines the audio unit
     AudioComponent inputComponent = AudioComponentFindNext(NULL //按照系统定义的排序来查找第一个系统音频单元匹配描述
@@ -76,7 +77,6 @@ const uint32_t CONST_BUFFER_SIZE = 0x10000;
     //初始化音频单元
     AudioComponentInstanceNew(inputComponent, &audioUnit);//创建
 
-    
 //    {//使用AUGraph 替代 AUAudioUnit   官方代码  每一个Audio Processing Graph 有一个确定的 I/O Unit
 //        // Declare and instantiate an audio processing graph
 //        //

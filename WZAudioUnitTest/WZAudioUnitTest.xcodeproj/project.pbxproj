@@ -12,6 +12,9 @@
 		84637D2B1FFF2298002772A0 /* Vibraphone.aupreset in Resources */ = {isa = PBXBuildFile; fileRef = 84637D241FFF2298002772A0 /* Vibraphone.aupreset */; };
 		84637D351FFF22DC002772A0 /* Trombone.aupreset in Resources */ = {isa = PBXBuildFile; fileRef = 84637D2D1FFF22DC002772A0 /* Trombone.aupreset */; };
 		84637D3E1FFF22F8002772A0 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 84637D3D1FFF22F8002772A0 /* Sounds */; };
+		84637D751FFF8087002772A0 /* WZMatrixMixerController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84637D731FFF8087002772A0 /* WZMatrixMixerController.mm */; };
+		84637D761FFF8087002772A0 /* WZMatrixMixerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84637D741FFF8087002772A0 /* WZMatrixMixerController.xib */; };
+		84637D791FFF8099002772A0 /* WZMatrixMixerEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84637D781FFF8099002772A0 /* WZMatrixMixerEngine.mm */; };
 		846A67401FFE3F9900BC6E44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A673F1FFE3F9900BC6E44 /* AppDelegate.m */; };
 		846A67431FFE3F9900BC6E44 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A67421FFE3F9900BC6E44 /* ViewController.m */; };
 		846A67461FFE3F9900BC6E44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846A67441FFE3F9900BC6E44 /* Main.storyboard */; };
@@ -20,8 +23,8 @@
 		846A674E1FFE3F9900BC6E44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A674D1FFE3F9900BC6E44 /* main.m */; };
 		846A67581FFE3F9900BC6E44 /* WZAudioUnitTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A67571FFE3F9900BC6E44 /* WZAudioUnitTestTests.m */; };
 		846A67631FFE3F9A00BC6E44 /* WZAudioUnitTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A67621FFE3F9A00BC6E44 /* WZAudioUnitTestUITests.m */; };
-		846A67BE1FFE41D000BC6E44 /* WZAudioFileServicesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A67741FFE41D000BC6E44 /* WZAudioFileServicesController.m */; };
-		846A67BF1FFE41D000BC6E44 /* WZAudioFileServicesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846A67751FFE41D000BC6E44 /* WZAudioFileServicesController.xib */; };
+		846A67BE1FFE41D000BC6E44 /* WZAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A67741FFE41D000BC6E44 /* WZAudioFile.m */; };
+		846A67BF1FFE41D000BC6E44 /* WZAudioFile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846A67751FFE41D000BC6E44 /* WZAudioFile.xib */; };
 		846A67C01FFE41D000BC6E44 /* 01.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846A67771FFE41D000BC6E44 /* 01.caf */; };
 		846A67C11FFE41D000BC6E44 /* WZExtendedAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A67791FFE41D000BC6E44 /* WZExtendedAudioFile.m */; };
 		846A67C21FFE41D000BC6E44 /* WZExtendedAudioFile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846A677A1FFE41D000BC6E44 /* WZExtendedAudioFile.xib */; };
@@ -32,7 +35,7 @@
 		846A67C71FFE41D000BC6E44 /* WZMIDIController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846A67851FFE41D000BC6E44 /* WZMIDIController.xib */; };
 		846A67C81FFE41D000BC6E44 /* WZMultichannelMixerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A67881FFE41D000BC6E44 /* WZMultichannelMixerController.m */; };
 		846A67C91FFE41D000BC6E44 /* WZMultichannelMixerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846A67891FFE41D000BC6E44 /* WZMultichannelMixerController.xib */; };
-		846A67CA1FFE41D000BC6E44 /* WZMultichannelMixerEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A678B1FFE41D000BC6E44 /* WZMultichannelMixerEngine.m */; };
+		846A67CA1FFE41D000BC6E44 /* WZMultichannelMixerEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 846A678B1FFE41D000BC6E44 /* WZMultichannelMixerEngine.mm */; };
 		846A67CB1FFE41D000BC6E44 /* abc.pcm in Resources */ = {isa = PBXBuildFile; fileRef = 846A678D1FFE41D000BC6E44 /* abc.pcm */; };
 		846A67CC1FFE41D000BC6E44 /* PCMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A678F1FFE41D000BC6E44 /* PCMPlayer.m */; };
 		846A67CE1FFE41D000BC6E44 /* WZIOPassThroughViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846A67941FFE41D000BC6E44 /* WZIOPassThroughViewController.m */; };
@@ -80,6 +83,11 @@
 		84637D241FFF2298002772A0 /* Vibraphone.aupreset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Vibraphone.aupreset; sourceTree = "<group>"; };
 		84637D2D1FFF22DC002772A0 /* Trombone.aupreset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Trombone.aupreset; sourceTree = "<group>"; };
 		84637D3D1FFF22F8002772A0 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
+		84637D721FFF8087002772A0 /* WZMatrixMixerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WZMatrixMixerController.h; sourceTree = "<group>"; };
+		84637D731FFF8087002772A0 /* WZMatrixMixerController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WZMatrixMixerController.mm; sourceTree = "<group>"; };
+		84637D741FFF8087002772A0 /* WZMatrixMixerController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WZMatrixMixerController.xib; sourceTree = "<group>"; };
+		84637D771FFF8099002772A0 /* WZMatrixMixerEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WZMatrixMixerEngine.h; sourceTree = "<group>"; };
+		84637D781FFF8099002772A0 /* WZMatrixMixerEngine.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WZMatrixMixerEngine.mm; sourceTree = "<group>"; };
 		846A673B1FFE3F9900BC6E44 /* WZAudioUnitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WZAudioUnitTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846A673E1FFE3F9900BC6E44 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		846A673F1FFE3F9900BC6E44 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -96,9 +104,9 @@
 		846A675E1FFE3F9A00BC6E44 /* WZAudioUnitTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WZAudioUnitTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		846A67621FFE3F9A00BC6E44 /* WZAudioUnitTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WZAudioUnitTestUITests.m; sourceTree = "<group>"; };
 		846A67641FFE3F9A00BC6E44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		846A67731FFE41D000BC6E44 /* WZAudioFileServicesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZAudioFileServicesController.h; sourceTree = "<group>"; };
-		846A67741FFE41D000BC6E44 /* WZAudioFileServicesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZAudioFileServicesController.m; sourceTree = "<group>"; };
-		846A67751FFE41D000BC6E44 /* WZAudioFileServicesController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WZAudioFileServicesController.xib; sourceTree = "<group>"; };
+		846A67731FFE41D000BC6E44 /* WZAudioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZAudioFile.h; sourceTree = "<group>"; };
+		846A67741FFE41D000BC6E44 /* WZAudioFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZAudioFile.m; sourceTree = "<group>"; };
+		846A67751FFE41D000BC6E44 /* WZAudioFile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WZAudioFile.xib; sourceTree = "<group>"; };
 		846A67771FFE41D000BC6E44 /* 01.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 01.caf; sourceTree = "<group>"; };
 		846A67781FFE41D000BC6E44 /* WZExtendedAudioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZExtendedAudioFile.h; sourceTree = "<group>"; };
 		846A67791FFE41D000BC6E44 /* WZExtendedAudioFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZExtendedAudioFile.m; sourceTree = "<group>"; };
@@ -115,7 +123,7 @@
 		846A67881FFE41D000BC6E44 /* WZMultichannelMixerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMultichannelMixerController.m; sourceTree = "<group>"; };
 		846A67891FFE41D000BC6E44 /* WZMultichannelMixerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WZMultichannelMixerController.xib; sourceTree = "<group>"; };
 		846A678A1FFE41D000BC6E44 /* WZMultichannelMixerEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMultichannelMixerEngine.h; sourceTree = "<group>"; };
-		846A678B1FFE41D000BC6E44 /* WZMultichannelMixerEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMultichannelMixerEngine.m; sourceTree = "<group>"; };
+		846A678B1FFE41D000BC6E44 /* WZMultichannelMixerEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WZMultichannelMixerEngine.mm; sourceTree = "<group>"; };
 		846A678D1FFE41D000BC6E44 /* abc.pcm */ = {isa = PBXFileReference; lastKnownFileType = file; path = abc.pcm; sourceTree = "<group>"; };
 		846A678E1FFE41D000BC6E44 /* PCMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCMPlayer.h; sourceTree = "<group>"; };
 		846A678F1FFE41D000BC6E44 /* PCMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCMPlayer.m; sourceTree = "<group>"; };
@@ -200,6 +208,18 @@
 			path = Tbone;
 			sourceTree = "<group>";
 		};
+		84637D711FFF8076002772A0 /* MatrixMixer */ = {
+			isa = PBXGroup;
+			children = (
+				84637D721FFF8087002772A0 /* WZMatrixMixerController.h */,
+				84637D731FFF8087002772A0 /* WZMatrixMixerController.mm */,
+				84637D741FFF8087002772A0 /* WZMatrixMixerController.xib */,
+				84637D771FFF8099002772A0 /* WZMatrixMixerEngine.h */,
+				84637D781FFF8099002772A0 /* WZMatrixMixerEngine.mm */,
+			);
+			path = MatrixMixer;
+			sourceTree = "<group>";
+		};
 		846A67321FFE3F9900BC6E44 = {
 			isa = PBXGroup;
 			children = (
@@ -262,7 +282,6 @@
 			children = (
 				846A67711FFE41D000BC6E44 /* AudioToolbox */,
 				846A677B1FFE41D000BC6E44 /* AuidoUnit */,
-				846A67991FFE41D000BC6E44 /* PublicUtility */,
 				846A679A1FFE41D000BC6E44 /* 素材 */,
 				846A67AC1FFE41D000BC6E44 /* 苹果的通用文件 */,
 			);
@@ -281,9 +300,9 @@
 		846A67721FFE41D000BC6E44 /* AudioFile */ = {
 			isa = PBXGroup;
 			children = (
-				846A67731FFE41D000BC6E44 /* WZAudioFileServicesController.h */,
-				846A67741FFE41D000BC6E44 /* WZAudioFileServicesController.m */,
-				846A67751FFE41D000BC6E44 /* WZAudioFileServicesController.xib */,
+				846A67731FFE41D000BC6E44 /* WZAudioFile.h */,
+				846A67741FFE41D000BC6E44 /* WZAudioFile.m */,
+				846A67751FFE41D000BC6E44 /* WZAudioFile.xib */,
 			);
 			path = AudioFile;
 			sourceTree = "<group>";
@@ -302,9 +321,10 @@
 		846A677B1FFE41D000BC6E44 /* AuidoUnit */ = {
 			isa = PBXGroup;
 			children = (
+				84637D711FFF8076002772A0 /* MatrixMixer */,
 				846A677C1FFE41D000BC6E44 /* AVCaptureSession录音 */,
 				846A67821FFE41D000BC6E44 /* MIDI */,
-				846A67861FFE41D000BC6E44 /* 多通道 */,
+				846A67861FFE41D000BC6E44 /* MultiChannelMixer */,
 				846A678C1FFE41D000BC6E44 /* 播放PCM */,
 				846A67921FFE41D000BC6E44 /* PassThrough */,
 			);
@@ -333,16 +353,16 @@
 			path = MIDI;
 			sourceTree = "<group>";
 		};
-		846A67861FFE41D000BC6E44 /* 多通道 */ = {
+		846A67861FFE41D000BC6E44 /* MultiChannelMixer */ = {
 			isa = PBXGroup;
 			children = (
 				846A67871FFE41D000BC6E44 /* WZMultichannelMixerController.h */,
 				846A67881FFE41D000BC6E44 /* WZMultichannelMixerController.m */,
 				846A67891FFE41D000BC6E44 /* WZMultichannelMixerController.xib */,
 				846A678A1FFE41D000BC6E44 /* WZMultichannelMixerEngine.h */,
-				846A678B1FFE41D000BC6E44 /* WZMultichannelMixerEngine.m */,
+				846A678B1FFE41D000BC6E44 /* WZMultichannelMixerEngine.mm */,
 			);
-			path = "多通道";
+			path = MultiChannelMixer;
 			sourceTree = "<group>";
 		};
 		846A678C1FFE41D000BC6E44 /* 播放PCM */ = {
@@ -369,13 +389,6 @@
 				846A67981FFE41D000BC6E44 /* WZIORenderCallController.xib */,
 			);
 			path = PassThrough;
-			sourceTree = "<group>";
-		};
-		846A67991FFE41D000BC6E44 /* PublicUtility */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PublicUtility;
 			sourceTree = "<group>";
 		};
 		846A679A1FFE41D000BC6E44 /* 素材 */ = {
@@ -550,12 +563,13 @@
 				846A67C71FFE41D000BC6E44 /* WZMIDIController.xib in Resources */,
 				846A67481FFE3F9900BC6E44 /* Assets.xcassets in Resources */,
 				846A67DD1FFE41D000BC6E44 /* 敢不敢.mp3 in Resources */,
+				84637D761FFF8087002772A0 /* WZMatrixMixerController.xib in Resources */,
 				846A67DC1FFE41D000BC6E44 /* 小丑鱼.mp3 in Resources */,
 				846A67461FFE3F9900BC6E44 /* Main.storyboard in Resources */,
 				846A67DE1FFE41D000BC6E44 /* 自我催眠.mp3 in Resources */,
 				846A67C21FFE41D000BC6E44 /* WZExtendedAudioFile.xib in Resources */,
 				846A67C51FFE41D000BC6E44 /* WZAVCaptureToAudioUnitController.xib in Resources */,
-				846A67BF1FFE41D000BC6E44 /* WZAudioFileServicesController.xib in Resources */,
+				846A67BF1FFE41D000BC6E44 /* WZAudioFile.xib in Resources */,
 				846A67D91FFE41D000BC6E44 /* DrumsMonoSTP.aif in Resources */,
 				84637D0C1FFF06D7002772A0 /* WZPlayPCMController.xib in Resources */,
 				846A67CF1FFE41D000BC6E44 /* WZIOPassThroughViewController.xib in Resources */,
@@ -587,12 +601,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				846A67E41FFE41D000BC6E44 /* CAXException.cpp in Sources */,
-				846A67CA1FFE41D000BC6E44 /* WZMultichannelMixerEngine.m in Sources */,
+				846A67CA1FFE41D000BC6E44 /* WZMultichannelMixerEngine.mm in Sources */,
 				846A67431FFE3F9900BC6E44 /* ViewController.m in Sources */,
 				846A67E01FFE41D000BC6E44 /* CAAudioBufferList.cpp in Sources */,
 				846A67CC1FFE41D000BC6E44 /* PCMPlayer.m in Sources */,
 				846A67E11FFE41D000BC6E44 /* CAComponentDescription.cpp in Sources */,
-				846A67BE1FFE41D000BC6E44 /* WZAudioFileServicesController.m in Sources */,
+				846A67BE1FFE41D000BC6E44 /* WZAudioFile.m in Sources */,
 				846A67C11FFE41D000BC6E44 /* WZExtendedAudioFile.m in Sources */,
 				846A67D01FFE41D000BC6E44 /* WZIORenderCallController.m in Sources */,
 				846A67C41FFE41D000BC6E44 /* WZAVCaptureToAudioUnitController.mm in Sources */,
@@ -603,9 +617,11 @@
 				846A674E1FFE3F9900BC6E44 /* main.m in Sources */,
 				846A67DF1FFE41D000BC6E44 /* AUOutputBL.cpp in Sources */,
 				84637D0B1FFF06D7002772A0 /* WZPlayPCMController.m in Sources */,
+				84637D791FFF8099002772A0 /* WZMatrixMixerEngine.mm in Sources */,
 				846A67401FFE3F9900BC6E44 /* AppDelegate.m in Sources */,
 				846A67E21FFE41D000BC6E44 /* CADebugMacros.cpp in Sources */,
 				846A67C81FFE41D000BC6E44 /* WZMultichannelMixerController.m in Sources */,
+				84637D751FFF8087002772A0 /* WZMatrixMixerController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

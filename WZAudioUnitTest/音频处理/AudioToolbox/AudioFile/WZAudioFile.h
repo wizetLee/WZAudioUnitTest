@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WZAudioFileServicesController : UIViewController
+@interface WZAudioFile : UIViewController
 
 @end

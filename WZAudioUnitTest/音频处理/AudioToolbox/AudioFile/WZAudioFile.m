@@ -6,15 +6,15 @@
 //  Copyright © 2018年 WZ. All rights reserved.
 //
 
-#import "WZAudioFileServicesController.h"
+#import "WZAudioFile.h"
 #import <AudioUnit/AudioUnit.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <CoreAudioKit/CoreAudioKit.h>
-@interface WZAudioFileServicesController ()
+@interface WZAudioFile ()
 
 @end
 
-@implementation WZAudioFileServicesController
+@implementation WZAudioFile
 
 - (void)viewDidLoad {
     [super viewDidLoad];

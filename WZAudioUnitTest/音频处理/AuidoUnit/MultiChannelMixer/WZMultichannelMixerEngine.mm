@@ -8,6 +8,7 @@
 
 #import "WZMultichannelMixerEngine.h"
 
+
 #define SAMPLERATE 44100.0//[[AVAudioSession sharedInstance] sampleRate]
 
 static const int BusCount = 2;
@@ -24,10 +25,14 @@ typedef struct {
 {
     AUGraph graph;                          //graph
     AudioUnit mixerUnit;                    //Mixing
-    AudioUnit outputUnit;                   //I/O
+    AudioUnit outputUnit;                   //I/O    可有可无
     AudioUnit effectUnit;                   //Effect
     
     SoundBuffer soundBuffer[BusCount];      //结构体数组
+    
+  
+    //node
+    AUNode outputNode, mixerNode, effectNode;
 }
 
 @end
@@ -46,9 +51,8 @@ typedef struct {
         memset(&soundBuffer, 0, sizeof(soundBuffer));
         
 //        [self configFiles];
-////        [self performSelectorInBackground:@selector(configFiles) withObject:nil];
-//        [self configGraph];
-        
+        [self performSelectorInBackground:@selector(configFiles) withObject:nil];
+        [self configGraph];
     }
     return self;
 }
@@ -92,7 +96,7 @@ typedef struct {
         numberOfFramesInFile = numberOfFramesInFile * rateRatie;//帧率转换最终得到的帧数 setPro
         
         ///buffer 部分 BusCount
-        //buffer 创建 之后通过使用audioUnitRender 将 AudioBufferList 的数据通过audio unit pull出去
+        //buffer 创建
         SoundBuffer *bufferStr = &soundBuffer[i];
         (*bufferStr).numFrames = (UInt32)numberOfFramesInFile;
         (*bufferStr).asbd = *clientFormat.streamDescription;
@@ -131,35 +135,33 @@ typedef struct {
     ACD.componentFlags            = 0;
     ACD.componentFlagsMask        = 0;
     
-    //node
-    AUNode outputNode, mixerNode, effectNode;
+    
 //get node
     //IO
     ACD.componentType             = kAudioUnitType_Output;
     ACD.componentSubType          = kAudioUnitSubType_RemoteIO;
     CheckError(AUGraphAddNode(graph, &ACD, &outputNode), "outputNode");
     
-    //Effect
-//    ACD.componentType             = kAudioUnitType_Effect;
-//    ACD.componentSubType          = kAudioUnitSubType_SampleDelay;
-//    CheckError(AUGraphAddNode(graph, &ACD, &effectNode), "effectNode");
-    
-    //Mixing
+    //mixer
     ACD.componentType             = kAudioUnitType_Mixer;
-    ACD.componentSubType          = kAudioUnitSubType_MultiChannelMixer;//多通道
-    CheckError(AUGraphAddNode(graph, &ACD, &mixerNode), "mixerNode");
-
-//    AUGraphConnectNodeInput(graph, effectNode, 0, mixerNode, 0);
+    ACD.componentSubType          = kAudioUnitSubType_MultiChannelMixer;
+    CheckError(AUGraphAddNode(graph, &ACD, &mixerNode), "outputNode");
+    
+    //effect
+    ACD.componentType             = kAudioUnitType_Effect;
+    ACD.componentSubType          = kAudioUnitSubType_Delay;
+    CheckError(AUGraphAddNode(graph, &ACD, &effectNode), "effectNode");
+    
     
     //connect a node's output to a node's input
     AUGraphConnectNodeInput(graph, mixerNode, 0/*source node bus*/, outputNode, 0/*desinatation node element*/);
-
+   
     //open graph
     CheckError(AUGraphOpen(graph), "graphOpen");
-
+   
 //get unit
     CheckError(AUGraphNodeInfo(graph, mixerNode, NULL, &mixerUnit), "mixerUnit");
-//    CheckError(AUGraphNodeInfo(graph, effectNode, NULL, &effectUnit), "effectUnit");
+    CheckError(AUGraphNodeInfo(graph, effectNode, NULL, &effectUnit), "effectUnit");
     CheckError(AUGraphNodeInfo(graph, outputNode, NULL, &outputUnit), "outputUnit");
     
 //////////////////属性配置
@@ -173,7 +175,7 @@ typedef struct {
     //为2个input分发内容
     for (int i = 0; i < tmpBusCount; i++) {
         AURenderCallbackStruct inputCallBack = {};
-        inputCallBack.inputProc = &renderInput;//处理
+        inputCallBack.inputProc = renderInput;//处理
         inputCallBack.inputProcRefCon = soundBuffer;//引用
         
         //为指定的node的触发指定input call back 调度 : pull
@@ -198,6 +200,31 @@ typedef struct {
     CAShow(graph);
 }
 
+- (void)withEffect:(BOOL)boolean {
+    BOOL tmpStatus = self.isPlaying;
+#warning 是否存在解决切换connect是不停止graph的方案？
+    CheckError(AUGraphStop(graph), __func__);
+    
+    OSStatus err = noErr;
+    if (boolean) {
+        _isEffecting = true;
+        //Effect
+        err = AUGraphDisconnectNodeInput(graph, outputNode, 0);
+        err = AUGraphConnectNodeInput(graph, mixerNode, 0, effectNode, 0);
+        err = AUGraphConnectNodeInput(graph, effectNode, 0, outputNode, 0);
+    } else {
+        _isEffecting = false;
+        err = AUGraphDisconnectNodeInput(graph, outputNode, 0);
+        err = AUGraphDisconnectNodeInput(graph, effectNode, 0);
+        err = AUGraphConnectNodeInput(graph, mixerNode, 0, outputNode, 0);
+    }
+    
+    CheckError(err, "error with connect between node！！！！！！！！！！！！！！");
+    if (tmpStatus) {
+       CheckError(AUGraphStart(graph), "AUGraphStart");
+    }
+}
+
 
 #pragma mark - callBack
 static OSStatus renderInput(void * inRefCon,
@@ -215,8 +242,11 @@ static OSStatus renderInput(void * inRefCon,
     Float32 *inSide = sndbuf[inBusNumber].data;             //数据
     
     if (inSide) {
+    
         Float32 *outL = (Float32 *)ioData->mBuffers[0].mData; // 左声道数据
         Float32 *outR = (Float32 *)ioData->mBuffers[1].mData; // 右声道数据
+        
+        //数据修改
         for (UInt32 i = 0; i < inNumberFrames; ++i) {
             if (1 == inBusNumber) {
                 outL[i] = 0;
@@ -246,6 +276,10 @@ static OSStatus renderInput(void * inRefCon,
     return isRunning;
 }
 
+- (BOOL)isPlaying {
+    return  [self graphIsRunning];
+}
+
 #pragma mark - action
 - (void)play {
     [self graphStart];
@@ -255,23 +289,26 @@ static OSStatus renderInput(void * inRefCon,
     [self graphStop];
 }
 
-- (void)rePlay {
+- (void)replay {
     soundBuffer[0].sampleNum = 0;
     soundBuffer[1].sampleNum = 0;
     [self graphStart];
 }
 
 //启动
-- (void)graphStart {
+- (void)graphStart {//开始pull head node -> sub node -> sub node
     if (![self graphIsRunning]) {
-        CheckError(AUGraphStart(graph), "AUGraphStart");//开始pull head node -> sub node -> sub node
+        if (CheckError(AUGraphStart(graph), "AUGraphStart") == noErr) {
+        }
     }
 }
 
 //停止
 - (void)graphStop {
     if ([self graphIsRunning]) {
-        CheckError(AUGraphStop(graph), "AUGraphStop");//stop pull
+        if (CheckError(AUGraphStop(graph), "AUGraphStop") == noErr) {
+        
+        }//stop pull
     }
 }
 

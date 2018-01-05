@@ -259,7 +259,7 @@ typedef NS_ENUM(NSUInteger, WZCAptureAudioUnitType) {
                                                                                &blockBufferOut), __func__);
             AudioUnitRenderActionFlags flags = 0;
             //告诉effect audio unit 开始 render：即将同步调用PushCurrentInputBufferIntoAudioUnit,将填充currentInputAudioBufferList到effect audio unit中
-            //delayAudioUnit            此render call 是为了获得输出音频数据
+            //delayAudioUnit            此render call 是为了获得输出音频数据 ：请求input audio data
             CheckError(AudioUnitRender(converterAudioUnit, &flags, &timeStamp, 0, (UInt32)numberOfFrames, outputBufferList->ABL()),"AudioUnitRender(converterAudioUnit");
             
             //清理工作
@@ -270,7 +270,7 @@ typedef NS_ENUM(NSUInteger, WZCAptureAudioUnitType) {
             //加锁 异步写缓存到文件中
             @synchronized(self) {
                 if (extAudioFile) {
-                    //可直接写AudioBufferList
+                    //可直接写AudioBufferList  把得到的数据保存到file中
                     CheckError(ExtAudioFileWriteAsync(extAudioFile, (UInt32)numberOfFrames, outputBufferList->ABL()), "ExtAudioFileWriteAsync");
                 }
             }

@@ -29,13 +29,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUp];
-    NSURL *presetURL = [[NSURL alloc] initFileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Vibraphone" ofType:@"aupreset"]];
-    if (presetURL) {
-        NSLog(@"Attempting to load preset '%@'\n", [presetURL description]);
-    }
-    
-    CheckError([self loadSynthFromPresetURL:presetURL], __func__);
-    
     [self start];
     
     
@@ -149,12 +142,14 @@
                                         kAudioUnitScope_Input,
                                         0,//output element
                                         &renderCall,
-                                        sizeof(renderCall)), "kAudioOutputUnitProperty_SetInputCallback");
+                                        sizeof(renderCall)), "kAudioUnitProperty_SetRenderCallback");
     }
 }
 
-static Float32 mY1 = 0,mX1 = 0;
 
+
+static Float32 mY1 = 0,mX1 = 0;
+#pragma mark - 数据修改
 OSStatus outputRenderCall(void * inRefCon,
                      AudioUnitRenderActionFlags * ioActionFlags,
                      const AudioTimeStamp * inTimeStamp,
@@ -162,33 +157,35 @@ OSStatus outputRenderCall(void * inRefCon,
                      UInt32 inNumberFrames,
                      AudioBufferList * __nullable ioData) {
     WZIORenderCallController *VC = (__bridge WZIORenderCallController*)inRefCon;
-
-    BOOL silence = false;
-    BOOL origion = false;
-    if (silence) {
-        //保持静默  配置数据为0
-        for (UInt32 i=0; i<ioData->mNumberBuffers; ++i) {
-            memset(ioData->mBuffers[i].mData, 0, ioData->mBuffers[i].mDataByteSize);
-        }
-    } else if(origion) {
-        
-        NSLog(@"----------");
-        for (UInt32 i = 0; i < inNumberFrames; i++) {
-            printf("%d ,%p \n",i ,ioData->mBuffers[i].mData);
-        }
-    } else {
-        //自定义修改的数据达到变声效果
-        //Q：如何修改数据？
-        //Q：为什么是mBuffers中的第一个元素,此结构体变量中标注数组长度就是1，但是文档中介绍是可变的，什么时候会产生第二个元素呢？
-        //一个苹果上的代码:用于在音频信号中去除直流分量
-        Float32* tmp_ioData = (Float32*)ioData->mBuffers[0].mData;
-        Float32 kDefaultPoleDist = 0.975f;
-        for (UInt32 i = 0; i < inNumberFrames; i++) {
-            Float32 xCurr = tmp_ioData[i];
-            printf("%d---%f \n",i ,xCurr);
-            tmp_ioData[i] = (tmp_ioData[i] - mX1 + (kDefaultPoleDist * mY1));
-            mX1 = xCurr;
-            mY1 = tmp_ioData[i];
+    if (ioData) {
+       
+        BOOL silence = false;
+        BOOL origion = false;
+        if (silence) {
+            //保持静默  配置数据为0
+            for (UInt32 i=0; i<ioData->mNumberBuffers; ++i) {
+                memset(ioData->mBuffers[i].mData, 0, ioData->mBuffers[i].mDataByteSize);
+            }
+        } else if(origion) {
+            
+            NSLog(@"----------");
+            for (UInt32 i = 0; i < inNumberFrames; i++) {
+                printf("%d ,%p \n",i ,ioData->mBuffers[i].mData);
+            }
+        } else {
+            //自定义修改的数据达到变声效果
+            //Q：如何修改数据？
+            //Q：为什么是mBuffers中的第一个元素,此结构体变量中标注数组长度就是1，但是文档中介绍是可变的，什么时候会产生第二个元素呢？根据channel数目（mix可多通道）
+            //一个苹果上的代码:用于在音频信号中去除直流分量
+            Float32* tmp_ioData = (Float32*)ioData->mBuffers[0].mData;
+            Float32 kDefaultPoleDist = 0.975f;
+            for (UInt32 i = 0; i < inNumberFrames; i++) {
+                Float32 xCurr = tmp_ioData[i];
+                //            printf("%d---%f \n",i ,xCurr);
+                tmp_ioData[i] = (tmp_ioData[i] - mX1 + (kDefaultPoleDist * mY1));
+                mX1 = xCurr;
+                mY1 = tmp_ioData[i];
+            }
         }
     }
     
@@ -237,56 +234,5 @@ OSStatus outputRenderCall(void * inRefCon,
     NSLog (@"  Bits per Channel:    %10d",    asbd.mBitsPerChannel);
 }
 
-- (OSStatus) loadSynthFromPresetURL: (NSURL *) presetURL {
-    
-    CFDataRef propertyResourceData = 0;
-    Boolean status;
-    SInt32 errorCode = 0;
-    OSStatus result = noErr;
-    
-    // Read from the URL and convert into a CFData chunk
-    status = CFURLCreateDataAndPropertiesFromResource (
-                                                       kCFAllocatorDefault,
-                                                       (__bridge CFURLRef) presetURL,
-                                                       &propertyResourceData,
-                                                       NULL,
-                                                       NULL,
-                                                       &errorCode
-                                                       );
-    
-    NSAssert (status == YES && propertyResourceData != 0, @"Unable to create data and properties from a preset. Error code: %d '%.4s'", (int) errorCode, (const char *)&errorCode);
-    
-    // Convert the data object into a property list
-    CFPropertyListRef presetPropertyList = 0;
-    CFPropertyListFormat dataFormat = 0;
-    CFErrorRef errorRef = 0;
-    presetPropertyList = CFPropertyListCreateWithData (
-                                                       kCFAllocatorDefault,
-                                                       propertyResourceData,
-                                                       kCFPropertyListImmutable,
-                                                       &dataFormat,
-                                                       &errorRef
-                                                       );
-    
-    // Set the class info property for the Sampler unit using the property list as the value.
-    if (presetPropertyList != 0) {
-        
-        result = AudioUnitSetProperty(
-                                      audioUnit,//设置到samplerUnit上
-                                      kAudioUnitProperty_ClassInfo,
-                                      kAudioUnitScope_Global,
-                                      0,
-                                      &presetPropertyList,
-                                      sizeof(CFPropertyListRef)
-                                      );
-        
-        CFRelease(presetPropertyList);
-    }
-    
-    if (errorRef) CFRelease(errorRef);
-    CFRelease (propertyResourceData);
-    
-    return result;
-}
 
 @end

@@ -9,16 +9,20 @@
 #import <Foundation/Foundation.h>
 #import <AudioUnit/AudioUnit.h>
 
+@protocol WZMultichannelMixerEngineProtocol<NSObject>//bla~bla~bla
+
+@end
+
 @interface WZMultichannelMixerEngine : NSObject
 
-- (void)configFiles;
-- (void)configGraph;
+@property (nonatomic, assign) BOOL isPlaying;
+@property (nonatomic, assign) BOOL isEffecting;
+
+- (void)withEffect:(BOOL)boolean;
 
 - (void)play;
 - (void)stop;
-- (void)rePlay;
-- (void)graphStart;
-- (void)graphStop;
+- (void)replay;
 
 ///控制mixerUnit某个input bus是否可用配置
 - (void)enableBusInput:(UInt32)busInputNumber isOn:(AudioUnitParameterValue)isOn;

@@ -10,6 +10,7 @@
 #import "WZMultichannelMixerEngine.h"
 
 @interface WZMultichannelMixerController ()
+@property (weak, nonatomic) IBOutlet UIButton *withEffectButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UISlider *lChannelVolumeSlider;
@@ -26,21 +27,23 @@
 
 -(void)dealloc {
     [_mixerEngine stop];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)configSession {
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    NSError *error;
+    [session setCategory:AVAudioSessionCategoryPlayback error:&error];
+    [session setActive:true error:&error];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    AVAudioSession *session = [AVAudioSession sharedInstance];
-    NSError *error;
-    [session setCategory:AVAudioSessionCategoryPlayback error:&error];
-    [session setPreferredIOBufferDuration:0.005 error:&error];
-    [session setPreferredSampleRate:44100.0 error:&error];
-    [session setActive:true error:&error];
+    [self addNotification];
+    [self configSession];
     
     _mixerEngine = WZMultichannelMixerEngine.alloc.init;
-    [_mixerEngine configFiles];
-    [_mixerEngine configGraph];
+  
     _lChannelEnableSwitch.on = true;
     _rChannelEnableSwitch.on = true;
     _lChannelVolumeSlider.value = 0.5;
@@ -54,6 +57,16 @@
     [self channelVolumeEnableAction:_rChannelEnableSwitch];
     [self channelVolumeEnableAction:_lChannelEnableSwitch];
     
+}
+- (IBAction)withEffectAction:(UIButton *)sender {
+    [_mixerEngine withEffect:!_mixerEngine.isEffecting];
+    sender.selected = _mixerEngine.isEffecting;
+}
+
+- (void)addNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioSessionInterruptionNotification:) name:AVAudioSessionInterruptionNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioSessionRouteChangeNotification:) name:AVAudioSessionRouteChangeNotification object:nil];
 }
 
 - (IBAction)adjustVolumeAction:(UISlider *)sender {
@@ -70,7 +83,6 @@
 }
 
 
-
 - (IBAction)channelVolumeEnableAction:(UISwitch *)sender {
     UInt32 busNum = 0;
     if (sender == _rChannelEnableSwitch) {
@@ -79,9 +91,39 @@
     [_mixerEngine enableBusInput:busNum isOn:sender.on];
 }
 
-
 - (IBAction)playOrStopAction:(UIButton *)sender {
-    [_mixerEngine play];
+    
+    if (_mixerEngine.isPlaying) {
+        [_mixerEngine stop];
+        [self played];
+    } else {
+        [_mixerEngine play];
+        [self stopped];
+    }
+}
+
+- (IBAction)replay:(id)sender {
+    [_mixerEngine replay];
+    [self stopped];
+}
+
+#pragma mark - notification
+- (void)audioSessionInterruptionNotification:(NSNotification *)ntf {
+    [_mixerEngine stop];
+}
+
+- (void)audioSessionRouteChangeNotification:(NSNotification *)ntf {
+    UInt8 reasonValue = [[ntf.userInfo valueForKey:AVAudioSessionRouteChangeReasonKey] intValue];
+    AVAudioSessionRouteDescription *routeDescription = [ntf.userInfo valueForKey:AVAudioSessionRouteChangePreviousRouteKey];
+}
+
+#pragma mark - UI
+- (void)played {
+    _playButton.selected = false;
+}
+
+- (void)stopped {
+    _playButton.selected = true;
 }
 
 @end

@@ -13,7 +13,7 @@
 #import "WZIORenderCallController.h"
 #import "WZMIDIController.h"
 #import "WZAVCaptureToAudioUnitController.h"
-#import "WZAudioFileServicesController.h"
+#import "WZAudioFile.h"
 #import "WZExtendedAudioFile.h"
 #import "WZMultichannelMixerController.h"
 
@@ -39,7 +39,7 @@
     [self addWithClass:WZIORenderCallController.class];
     [self addWithClass:WZMIDIController.class];
     [self addWithClass:WZAVCaptureToAudioUnitController.class];
-    [self addWithClass:WZAudioFileServicesController.class];
+    [self addWithClass:WZAudioFile.class];
     [self addWithClass:WZExtendedAudioFile.class];
     [self addWithClass:WZMultichannelMixerController.class];
 }

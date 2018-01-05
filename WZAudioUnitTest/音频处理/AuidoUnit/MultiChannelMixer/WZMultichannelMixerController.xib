@@ -19,6 +19,7 @@
                 <outlet property="rChannelEnableSwitch" destination="vnM-pe-FMU" id="XaK-4i-mW7"/>
                 <outlet property="rChannelVolumeSlider" destination="DeR-4I-dZp" id="6sn-1m-Xzx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="withEffectButton" destination="nss-Nu-4TE" id="PFx-Vf-QGd"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -33,6 +34,7 @@
                     <state key="normal" title="播放">
                         <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="0.83251284250000002" colorSpace="calibratedRGB"/>
                     </state>
+                    <state key="selected" title="暂停"/>
                     <connections>
                         <action selector="playOrStopAction:" destination="-1" eventType="touchUpInside" id="Arf-Ge-SKG"/>
                     </connections>
@@ -46,75 +48,101 @@
                         <action selector="adjustVolumeAction:" destination="-1" eventType="valueChanged" id="ytV-9E-ryz"/>
                     </connections>
                 </slider>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7FN-Td-Sae">
-                    <rect key="frame" x="18" y="287" width="270" height="45"/>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="DeR-4I-dZp">
+                    <rect key="frame" x="18" y="443" width="270" height="31"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="2hA-cJ-ceD"/>
+                        <constraint firstAttribute="height" constant="30" id="MCG-zq-aum"/>
+                    </constraints>
+                    <connections>
+                        <action selector="adjustVolumeAction:" destination="-1" eventType="valueChanged" id="2jK-kx-vS7"/>
+                    </connections>
+                </slider>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7FN-Td-Sae">
+                    <rect key="frame" x="18" y="343" width="270" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="2hA-cJ-ceD"/>
                     </constraints>
                     <connections>
                         <action selector="adjustVolumeAction:" destination="-1" eventType="valueChanged" id="BjA-BS-aON"/>
                     </connections>
                 </slider>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="右声道" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuP-Ud-1Po">
-                    <rect key="frame" x="20" y="361" width="335" height="44"/>
+                    <rect key="frame" x="20" y="403" width="335" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="Z5D-Fd-zQ5"/>
+                        <constraint firstAttribute="height" constant="30" id="Z5D-Fd-zQ5"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="outputVolume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3a-bE-HVr">
-                    <rect key="frame" x="20" y="489" width="335" height="44"/>
+                    <rect key="frame" x="20" y="503" width="335" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="0NT-FA-t9S"/>
+                        <constraint firstAttribute="height" constant="30" id="0NT-FA-t9S"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="左声道" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eha-EZ-g0B">
-                    <rect key="frame" x="20" y="233" width="335" height="44"/>
+                    <rect key="frame" x="20" y="303" width="335" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="eDE-k6-3W1"/>
+                        <constraint firstAttribute="height" constant="30" id="eDE-k6-3W1"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q79-VN-DDB">
-                    <rect key="frame" x="306" y="287" width="51" height="44"/>
+                    <rect key="frame" x="306" y="343" width="51" height="30"/>
                     <connections>
                         <action selector="channelVolumeEnableAction:" destination="-1" eventType="valueChanged" id="5JU-1G-zhF"/>
                     </connections>
                 </switch>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vnM-pe-FMU">
-                    <rect key="frame" x="306" y="415" width="51" height="44"/>
+                    <rect key="frame" x="306" y="443" width="51" height="30"/>
                     <connections>
                         <action selector="channelVolumeEnableAction:" destination="-1" eventType="valueChanged" id="7GL-Dw-CVv"/>
                     </connections>
                 </switch>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="DeR-4I-dZp">
-                    <rect key="frame" x="18" y="415" width="270" height="45"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="MCG-zq-aum"/>
-                    </constraints>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqP-Lw-9sV">
+                    <rect key="frame" x="20" y="233" width="335" height="40"/>
+                    <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="0.6114886558" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                    <state key="normal" title="重新播放">
+                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="0.83251284250000002" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
-                        <action selector="adjustVolumeAction:" destination="-1" eventType="valueChanged" id="2jK-kx-vS7"/>
+                        <action selector="replay:" destination="-1" eventType="touchUpInside" id="g8q-UM-RGV"/>
                     </connections>
-                </slider>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nss-Nu-4TE">
+                    <rect key="frame" x="20" y="188" width="335" height="40"/>
+                    <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="0.6114886558" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                    <state key="normal" title="withoutEffect">
+                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="0.83251284250000002" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected" title="withEffect"/>
+                    <connections>
+                        <action selector="withEffectAction:" destination="-1" eventType="touchUpInside" id="GSi-3J-tHj"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="wqP-Lw-9sV" secondAttribute="trailing" constant="20" id="0Ct-4A-OxV"/>
                 <constraint firstItem="7FN-Td-Sae" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="1AD-FT-P6k"/>
                 <constraint firstItem="Eha-EZ-g0B" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="2vg-LD-dru"/>
                 <constraint firstItem="1eP-sD-lMV" firstAttribute="top" secondItem="BYM-Nw-vBE" secondAttribute="bottom" constant="30" id="5m5-mo-d7v"/>
                 <constraint firstItem="c3a-bE-HVr" firstAttribute="top" secondItem="DeR-4I-dZp" secondAttribute="bottom" constant="30" id="7CF-hq-VdM"/>
+                <constraint firstItem="wqP-Lw-9sV" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="7dL-r1-amC"/>
                 <constraint firstItem="BYM-Nw-vBE" firstAttribute="top" secondItem="c3a-bE-HVr" secondAttribute="bottom" constant="10" id="9oW-5U-1Pj"/>
                 <constraint firstItem="1eP-sD-lMV" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="AcK-Kh-PRW"/>
                 <constraint firstItem="q79-VN-DDB" firstAttribute="leading" secondItem="7FN-Td-Sae" secondAttribute="trailing" constant="20" id="DLd-VD-XgL"/>
                 <constraint firstItem="wuP-Ud-1Po" firstAttribute="top" secondItem="q79-VN-DDB" secondAttribute="bottom" constant="30" id="FGi-LJ-B46"/>
                 <constraint firstItem="7FN-Td-Sae" firstAttribute="top" secondItem="Eha-EZ-g0B" secondAttribute="bottom" constant="10" id="GKJ-z4-ygR"/>
+                <constraint firstItem="Eha-EZ-g0B" firstAttribute="top" secondItem="wqP-Lw-9sV" secondAttribute="bottom" constant="30" id="IxN-Qv-H4P"/>
                 <constraint firstItem="BYM-Nw-vBE" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="JCe-YN-ZRD"/>
                 <constraint firstItem="vnM-pe-FMU" firstAttribute="leading" secondItem="DeR-4I-dZp" secondAttribute="trailing" constant="20" id="JNc-4U-2xX"/>
                 <constraint firstItem="c3a-bE-HVr" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="Ndr-KO-1S7"/>
@@ -128,11 +156,14 @@
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="BYM-Nw-vBE" secondAttribute="trailing" constant="20" id="eGd-3h-OX2"/>
                 <constraint firstItem="vnM-pe-FMU" firstAttribute="height" secondItem="DeR-4I-dZp" secondAttribute="height" id="eGn-vU-RDB"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="wuP-Ud-1Po" secondAttribute="trailing" constant="20" id="eKi-jm-y1V"/>
+                <constraint firstItem="nss-Nu-4TE" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="fF4-2g-aSR"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="1eP-sD-lMV" secondAttribute="bottom" constant="10" id="fwc-Wm-tGd"/>
                 <constraint firstItem="c3a-bE-HVr" firstAttribute="top" secondItem="vnM-pe-FMU" secondAttribute="bottom" constant="30" id="geO-Of-J0D"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="c3a-bE-HVr" secondAttribute="trailing" constant="20" id="gi7-qs-gEI"/>
+                <constraint firstItem="wqP-Lw-9sV" firstAttribute="top" secondItem="nss-Nu-4TE" secondAttribute="bottom" constant="5" id="h1g-dO-psg"/>
                 <constraint firstItem="wuP-Ud-1Po" firstAttribute="top" secondItem="7FN-Td-Sae" secondAttribute="bottom" constant="30" id="jYb-CM-FCe"/>
                 <constraint firstItem="DeR-4I-dZp" firstAttribute="top" secondItem="wuP-Ud-1Po" secondAttribute="bottom" constant="10" id="omJ-NQ-CF7"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="nss-Nu-4TE" secondAttribute="trailing" constant="20" id="pum-xv-LSd"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Eha-EZ-g0B" secondAttribute="trailing" constant="20" id="ugZ-V3-UOh"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="vnM-pe-FMU" secondAttribute="trailing" constant="20" id="xMU-Oy-lNX"/>
             </constraints>
