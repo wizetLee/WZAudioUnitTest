@@ -202,7 +202,7 @@ typedef struct {
 
 - (void)withEffect:(BOOL)boolean {
     BOOL tmpStatus = self.isPlaying;
-#warning 是否存在解决切换connect是不停止graph的方案？
+#warning 是否存在解决切换connect时不停止graph的方案？
     CheckError(AUGraphStop(graph), __func__);
     
     OSStatus err = noErr;
