@@ -11,6 +11,9 @@
 
 @interface WZMultichannelMixerEngine : NSObject
 
+- (void)configFiles;
+- (void)configGraph;
+
 - (void)play;
 - (void)stop;
 - (void)rePlay;

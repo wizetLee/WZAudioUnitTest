@@ -144,6 +144,7 @@ typedef NS_ENUM(NSUInteger, WZCAptureAudioUnitType) {
         NSLog(@"audioDevice.localizedName : %@", audioDevice.localizedName);
     } else {
         NSLog(@"麦克风连接失败");
+        return;
     }
     
     captureSession = [[AVCaptureSession alloc] init];

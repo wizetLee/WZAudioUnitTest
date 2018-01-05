@@ -7,9 +7,8 @@
 //
 
 #import "WZMultichannelMixerEngine.h"
-#import <CoreAudioKit/CoreAudioKit.h>
 
-#define SAMPLERATE [[AVAudioSession sharedInstance] sampleRate]
+#define SAMPLERATE 44100.0//[[AVAudioSession sharedInstance] sampleRate]
 
 static const int BusCount = 2;
 
@@ -33,10 +32,6 @@ typedef struct {
 
 @end
 
-
-
-
-
 /**
  若干个inpout bus --->  mixer  ---> effect ----> io
  */
@@ -47,8 +42,13 @@ typedef struct {
 {
     self = [super init];
     if (self) {
-        [self configFiles];
-        [self configGraph];
+        
+        memset(&soundBuffer, 0, sizeof(soundBuffer));
+        
+//        [self configFiles];
+////        [self performSelectorInBackground:@selector(configFiles) withObject:nil];
+//        [self configGraph];
+        
     }
     return self;
 }
@@ -57,14 +57,17 @@ typedef struct {
     //PCM Format
     AVAudioFormat *clientFormat = [[AVAudioFormat alloc] initWithCommonFormat:AVAudioPCMFormatFloat32 sampleRate:SAMPLERATE channels:1 interleaved:true];
     NSArray <NSURL *>* urlArr = @[
-                                  [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"DrumsMonoSTP" ofType:@"aif"]],
-                                  [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"GuitarMonoSTP" ofType:@"aif"] ]
+                                  [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"小丑鱼" ofType:@"mp3"]],
+                                  [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"敢不敢" ofType:@"mp3"] ]
+//                                  [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"DrumsMonoSTP" ofType:@"aif"]],
+//                                  [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"GuitarMonoSTP" ofType:@"aif"] ]
                                   ];
     
     //bus Count
     for (int i = 0; i < BusCount; i++) {
         ExtAudioFileRef extAFRef = NULL;
         //获得句柄
+        
         CheckError(ExtAudioFileOpenURL((__bridge CFURLRef)urlArr[i], &extAFRef), "ExtAudioFileOpenURL");
         //获取格式
         AudioStreamBasicDescription ASBD = {0};
@@ -77,7 +80,6 @@ typedef struct {
         （You must set this in order to encode or decode a non-PCM file data format.）
         如果使用到非PCM数据格式的文件，必须通过此键修改数据格式
      */
-       
         CheckError(ExtAudioFileSetProperty(extAFRef, kExtAudioFileProperty_ClientDataFormat, ASBDSize, clientFormat.streamDescription), "ClientDataFormat");
         
         //获取文件帧数
@@ -103,7 +105,10 @@ typedef struct {
         ABL.mNumberBuffers = 1;
         ABL.mBuffers[0].mNumberChannels = 1;
         ABL.mBuffers[0].mDataByteSize = samples * sizeof(UInt32);//字节 2^8
-        ABL.mBuffers[0].mData = (Float32 *)calloc(samples, sizeof(Float32));
+#warning 出错在这里😓 应该关联上这份buffer
+//        ABL.mBuffers[0].mData = (Float32 *)calloc(samples, sizeof(Float32));
+        ABL.mBuffers[0].mData = soundBuffer[i].data;
+        
 //大文件卡顿
         //同步按顺序把音频数据从文件中读取到创建的buffer中
         UInt32 numPackets = (UInt32)numberOfFramesInFile;
@@ -135,9 +140,9 @@ typedef struct {
     CheckError(AUGraphAddNode(graph, &ACD, &outputNode), "outputNode");
     
     //Effect
-    ACD.componentType             = kAudioUnitType_Effect;
-    ACD.componentSubType          = kAudioUnitSubType_SampleDelay;
-    CheckError(AUGraphAddNode(graph, &ACD, &effectNode), "effectNode");
+//    ACD.componentType             = kAudioUnitType_Effect;
+//    ACD.componentSubType          = kAudioUnitSubType_SampleDelay;
+//    CheckError(AUGraphAddNode(graph, &ACD, &effectNode), "effectNode");
     
     //Mixing
     ACD.componentType             = kAudioUnitType_Mixer;
@@ -154,18 +159,17 @@ typedef struct {
 
 //get unit
     CheckError(AUGraphNodeInfo(graph, mixerNode, NULL, &mixerUnit), "mixerUnit");
-    CheckError(AUGraphNodeInfo(graph, effectNode, NULL, &effectUnit), "effectUnit");
+//    CheckError(AUGraphNodeInfo(graph, effectNode, NULL, &effectUnit), "effectUnit");
     CheckError(AUGraphNodeInfo(graph, outputNode, NULL, &outputUnit), "outputUnit");
     
-    
 //////////////////属性配置
-    //the format for the graph 制定graph的格式
-    AVAudioFormat *format = [[AVAudioFormat alloc] initWithCommonFormat:AVAudioPCMFormatFloat32 sampleRate:SAMPLERATE  channels:2 interleaved:false];
-    
+ 
     //配置input bus 的数目
     UInt32 tmpBusCount = BusCount;
     AudioUnitSetProperty(mixerUnit, kAudioUnitProperty_ElementCount, kAudioUnitScope_Input, 0, &tmpBusCount, sizeof(tmpBusCount));
     
+    //the format for the graph 制定graph的格式
+    AVAudioFormat *format = [[AVAudioFormat alloc] initWithCommonFormat:AVAudioPCMFormatFloat32 sampleRate:SAMPLERATE channels:2 interleaved:false];
     //为2个input分发内容
     for (int i = 0; i < tmpBusCount; i++) {
         AURenderCallbackStruct inputCallBack = {};
@@ -181,12 +185,14 @@ typedef struct {
         CheckError(AudioUnitSetProperty(mixerUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, i, format.streamDescription, sizeof(AudioStreamBasicDescription)), "_StreamFormat");
     }
     
-    //格式传递   IO
-     //CheckError(AudioUnitSetProperty(outputUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, format.streamDescription, sizeof(AudioStreamBasicDescription)), "_StreamFormat");
-    //或者
-    CheckError(AudioUnitSetProperty(outputUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 1, format.streamDescription, sizeof(AudioStreamBasicDescription)), "_StreamFormat");
+    CheckError(AudioUnitSetProperty(mixerUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 0, format.streamDescription, sizeof(AudioStreamBasicDescription)), "_StreamFormat");
     
-    //validate connection： 验证链接 以及初始化graph
+    //格式传递   IO
+     CheckError(AudioUnitSetProperty(outputUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, format.streamDescription, sizeof(AudioStreamBasicDescription)), "_StreamFormat");
+    //或者
+//    CheckError(AudioUnitSetProperty(outputUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 1, format.streamDescription, sizeof(AudioStreamBasicDescription)), "_StreamFormat");
+    
+    //validate connection： 验证链接以及初始化graph
     CheckError(AUGraphInitialize(graph), "AUGraphInitialize");
     
     CAShow(graph);
@@ -205,6 +211,7 @@ static OSStatus renderInput(void * inRefCon,
     //根据bus获得对应的信息
     UInt32 sample = sndbuf[inBusNumber].sampleNum;          //样本号
     UInt32 bufSamples = sndbuf[inBusNumber].numFrames;      //总帧数
+    
     Float32 *inSide = sndbuf[inBusNumber].data;             //数据
     
     if (inSide) {
@@ -235,34 +242,36 @@ static OSStatus renderInput(void * inRefCon,
 
 - (BOOL)graphIsRunning {
     Boolean isRunning = false;
-    AUGraphIsRunning(graph, &isRunning);
+    CheckError(AUGraphIsRunning(graph, &isRunning), "AUGraphIsRunning");
     return isRunning;
 }
 
 #pragma mark - action
 - (void)play {
-    
+    [self graphStart];
 }
 
 - (void)stop {
-    
+    [self graphStop];
 }
 
 - (void)rePlay {
-    
+    soundBuffer[0].sampleNum = 0;
+    soundBuffer[1].sampleNum = 0;
+    [self graphStart];
 }
 
 //启动
 - (void)graphStart {
     if (![self graphIsRunning]) {
-        AUGraphStart(graph);//开始pull head node -> sub node -> sub node
+        CheckError(AUGraphStart(graph), "AUGraphStart");//开始pull head node -> sub node -> sub node
     }
 }
 
 //停止
 - (void)graphStop {
     if ([self graphIsRunning]) {
-        AUGraphStop(graph);//stop pull
+        CheckError(AUGraphStop(graph), "AUGraphStop");//stop pull
     }
 }
 

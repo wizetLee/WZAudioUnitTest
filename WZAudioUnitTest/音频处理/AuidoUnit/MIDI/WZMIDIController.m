@@ -6,9 +6,9 @@
 //  Copyright © 2017年 WZ. All rights reserved.
 //
 
-#import "WZGraphWithSamplerIOController.h"
+#import "WZMIDIController.h"
 
-@interface WZGraphWithSamplerIOController ()
+@interface WZMIDIController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *trombonePresetButton;
 @property (weak, nonatomic) IBOutlet UIButton *vibraphonePresetButton;
@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *note_4;
 @property (weak, nonatomic) IBOutlet UIButton *note_5;
 
-
 @property (nonatomic, assign) Float64 graphSampleRate;
 @property (nonatomic, assign) AUGraph graph;          //graph
 @property (nonatomic, assign) AudioUnit samplerUnit;
@@ -28,7 +27,7 @@
 
 @end
 
-@implementation WZGraphWithSamplerIOController
+@implementation WZMIDIController
 
 - (void)dealloc {
     [self applicationWillResignActiveNotification:nil];
@@ -92,7 +91,6 @@
         
         CheckError(AUGraphNodeInfo(_graph, ioNode, &tmp, &_ioUnit), __func__);
     }
-    
     {//配置、启动graph
         //设置IO unit采样速率 可不配置直接用系统的
         CheckError(AudioUnitInitialize(_ioUnit), __func__);//使生效
@@ -269,7 +267,6 @@
 
 #pragma mark - 通知
 - (void)registerNotifications {
-    
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     [notificationCenter addObserver: self
                            selector: @selector (applicationWillResignActiveNotification:)

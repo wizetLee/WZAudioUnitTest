@@ -29,10 +29,27 @@
 
 @implementation WZAVCaptureToAudioUnitController
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _captureEngine = WZAVCaptureAudioUnitEngine.alloc.init;
+        _captureEngine.delegate = self;
+    }
+    return self;
+}
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+        _captureEngine = WZAVCaptureAudioUnitEngine.alloc.init;
+        _captureEngine.delegate = self;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _captureEngine = WZAVCaptureAudioUnitEngine.alloc.init;
-    _captureEngine.delegate = self;
+    
     _pauseBtn.hidden = true;
     _stopBtn.hidden = true;
     _resumeBtn.hidden = true;
@@ -89,6 +106,7 @@
     _playBtn.hidden = true;
     _pauseBtn.hidden = true;
 }
+
 - (void)captureAudioUnitEngineResumeRecording {
     _recordBtn.hidden = true;
     _stopBtn.hidden = false;
@@ -96,6 +114,5 @@
     _playBtn.hidden = true;
     _pauseBtn.hidden = false;
 }
-
 
 @end

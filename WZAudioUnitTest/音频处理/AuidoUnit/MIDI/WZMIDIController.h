@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WZGraphWithSamplerIOController : UIViewController
+@interface WZMIDIController : UIViewController
 
 @end

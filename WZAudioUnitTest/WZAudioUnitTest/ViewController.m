@@ -7,14 +7,15 @@
 //
 
 #import "ViewController.h"
+
+#import "WZPlayPCMController.h"
 #import "WZIOPassThroughViewController.h"
 #import "WZIORenderCallController.h"
-#import "WZIOPassThroughViewController.h"
-#import "WZIOPassThroughViewController.h"
-#import "WZIOPassThroughViewController.h"
-#import "WZIOPassThroughViewController.h"
-#import "WZIOPassThroughViewController.h"
-#import "WZIOPassThroughViewController.h"
+#import "WZMIDIController.h"
+#import "WZAVCaptureToAudioUnitController.h"
+#import "WZAudioFileServicesController.h"
+#import "WZExtendedAudioFile.h"
+#import "WZMultichannelMixerController.h"
 
 #define CELLID @"UITableViewCell"
 
@@ -29,15 +30,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = false;
+  
     _data = NSMutableArray.array;
     
+    [self addWithClass:WZPlayPCMController.class];
     [self addWithClass:WZIOPassThroughViewController.class];
-    
     [self addWithClass:WZIORenderCallController.class];
-    
-    [self addWithClass:WZIORenderCallController.class];
-    
-    
+    [self addWithClass:WZMIDIController.class];
+    [self addWithClass:WZAVCaptureToAudioUnitController.class];
+    [self addWithClass:WZAudioFileServicesController.class];
+    [self addWithClass:WZExtendedAudioFile.class];
+    [self addWithClass:WZMultichannelMixerController.class];
 }
 
 - (void)addWithClass:(Class)class {
@@ -48,20 +52,22 @@
     WZCatalogueModel *model = WZCatalogueModel.new;
     model.fromXIB = fromXIB;
     model.headline = headline;
-    model.aClass = WZIORenderCallController.class;
+    model.aClass = class.class;
     [_data addObject:model];
 }
-
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     if(!_table) {
-        UITableView *table = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        UITableView *table = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         [self.view addSubview:table];
+        if (@available(iOS 11.0, *)) {
+            table.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
         
         table.delegate = self;
         table.dataSource = self;
-        table.backgroundColor = UIColor.yellowColor;
+        table.backgroundColor = UIColor.whiteColor;
         table.estimatedRowHeight = UITableViewAutomaticDimension;
         table.estimatedSectionFooterHeight = 0.0;
         table.estimatedSectionHeaderHeight = 0.0;
@@ -87,7 +93,11 @@
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row >= _data.count) {return;}
     
+    WZCatalogueModel *model = _data[indexPath.row];
+    UIViewController *VC = [[model.aClass alloc] initWithNibName:NSStringFromClass(model.aClass) bundle:NSBundle.mainBundle];
+    [self.navigationController pushViewController:VC animated:true];
 }
 
 #pragma mark - UITableViewDataSource
