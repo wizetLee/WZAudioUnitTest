@@ -7,17 +7,26 @@
 //
 
 #import "WZMatrixMixerController.h"
-
+#import "WZMatrixMixerEngine.h"
 
 @interface WZMatrixMixerController ()
+
+@property (nonatomic, strong) WZMatrixMixerEngine *maxerEngine;
 
 @end
 
 @implementation WZMatrixMixerController
 
+- (void)dealloc {
+    [_maxerEngine stop];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configSession];
+    
+    _maxerEngine = WZMatrixMixerEngine.alloc.init;
+    
 }
 
 - (void)configSession {

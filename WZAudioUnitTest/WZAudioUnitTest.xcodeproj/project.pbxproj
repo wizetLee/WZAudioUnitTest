@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		403C5CFE2001DDD800DE173A /* Loveless.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 403C5CFD2001DDD800DE173A /* Loveless.mp3 */; };
+		403C5D002001DE2B00DE173A /* 祝君好.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 403C5CFF2001DE2B00DE173A /* 祝君好.mp3 */; };
 		84637D0B1FFF06D7002772A0 /* WZPlayPCMController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84637D091FFF06D7002772A0 /* WZPlayPCMController.m */; };
 		84637D0C1FFF06D7002772A0 /* WZPlayPCMController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84637D0A1FFF06D7002772A0 /* WZPlayPCMController.xib */; };
 		84637D2B1FFF2298002772A0 /* Vibraphone.aupreset in Resources */ = {isa = PBXBuildFile; fileRef = 84637D241FFF2298002772A0 /* Vibraphone.aupreset */; };
@@ -77,6 +79,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		403C5CFD2001DDD800DE173A /* Loveless.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Loveless.mp3; sourceTree = "<group>"; };
+		403C5CFF2001DE2B00DE173A /* 祝君好.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "祝君好.mp3"; sourceTree = "<group>"; };
 		84637D081FFF06D7002772A0 /* WZPlayPCMController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WZPlayPCMController.h; sourceTree = "<group>"; };
 		84637D091FFF06D7002772A0 /* WZPlayPCMController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WZPlayPCMController.m; sourceTree = "<group>"; };
 		84637D0A1FFF06D7002772A0 /* WZPlayPCMController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WZPlayPCMController.xib; sourceTree = "<group>"; };
@@ -397,6 +401,8 @@
 				84637D1A1FFF2298002772A0 /* AUPreset */,
 				846A67A61FFE41D000BC6E44 /* DrumsMonoSTP.aif */,
 				846A67A71FFE41D000BC6E44 /* GuitarMonoSTP.aif */,
+				403C5CFD2001DDD800DE173A /* Loveless.mp3 */,
+				403C5CFF2001DE2B00DE173A /* 祝君好.mp3 */,
 				846A67A81FFE41D000BC6E44 /* Secretofmyheart.mp3 */,
 				846A67A91FFE41D000BC6E44 /* 小丑鱼.mp3 */,
 				846A67AA1FFE41D000BC6E44 /* 敢不敢.mp3 */,
@@ -563,7 +569,9 @@
 				846A67C71FFE41D000BC6E44 /* WZMIDIController.xib in Resources */,
 				846A67481FFE3F9900BC6E44 /* Assets.xcassets in Resources */,
 				846A67DD1FFE41D000BC6E44 /* 敢不敢.mp3 in Resources */,
+				403C5CFE2001DDD800DE173A /* Loveless.mp3 in Resources */,
 				84637D761FFF8087002772A0 /* WZMatrixMixerController.xib in Resources */,
+				403C5D002001DE2B00DE173A /* 祝君好.mp3 in Resources */,
 				846A67DC1FFE41D000BC6E44 /* 小丑鱼.mp3 in Resources */,
 				846A67461FFE3F9900BC6E44 /* Main.storyboard in Resources */,
 				846A67DE1FFE41D000BC6E44 /* 自我催眠.mp3 in Resources */,

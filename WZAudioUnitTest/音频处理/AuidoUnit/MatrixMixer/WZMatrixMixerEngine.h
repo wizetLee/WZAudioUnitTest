@@ -10,4 +10,7 @@
 
 @interface WZMatrixMixerEngine : NSObject
 
+- (void)stop;
+
+
 @end

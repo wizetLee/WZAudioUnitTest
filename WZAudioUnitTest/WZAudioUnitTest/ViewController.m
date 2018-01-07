@@ -16,6 +16,7 @@
 #import "WZAudioFile.h"
 #import "WZExtendedAudioFile.h"
 #import "WZMultichannelMixerController.h"
+#import "WZMatrixMixerController.h"
 
 #define CELLID @"UITableViewCell"
 
@@ -42,6 +43,8 @@
     [self addWithClass:WZAudioFile.class];
     [self addWithClass:WZExtendedAudioFile.class];
     [self addWithClass:WZMultichannelMixerController.class];
+    [self addWithClass:WZMatrixMixerController.class];
+    
 }
 
 - (void)addWithClass:(Class)class {

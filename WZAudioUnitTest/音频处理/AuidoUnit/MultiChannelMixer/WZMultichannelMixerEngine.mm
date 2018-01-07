@@ -59,7 +59,12 @@ typedef struct {
 
 - (void)configFiles {
     //PCM Format
-    AVAudioFormat *clientFormat = [[AVAudioFormat alloc] initWithCommonFormat:AVAudioPCMFormatFloat32 sampleRate:SAMPLERATE channels:1 interleaved:true];
+//    AVAudioFormat *clientFormat = [[AVAudioFormat alloc] initWithCommonFormat:AVAudioPCMFormatFloat32 sampleRate:SAMPLERATE channels:1 interleaved:false];
+     AVAudioFormat *clientFormat = [[AVAudioFormat alloc] initWithCommonFormat:AVAudioPCMFormatFloat32 sampleRate:SAMPLERATE channels:1 interleaved:true];
+    /** from ASBD
+     非立体声（非交叉音频），每个帧字段标志着一个通道
+     立体声（交叉音频），每个帧字段标志着包含若干个通道的集合
+     */
     NSArray <NSURL *>* urlArr = @[
                                   [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"小丑鱼" ofType:@"mp3"]],
                                   [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"敢不敢" ofType:@"mp3"] ]

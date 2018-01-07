@@ -14,6 +14,9 @@
 #import <CoreAudioKit/CoreAudioKit.h>
 #import <AudioUnit/AudioUnit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <AudioUnit/AudioUnitParameters.h>
+#import <AudioUnit/AudioUnitProperties.h>
+
 
 static OSStatus CheckError(OSStatus error,const char *operaton){
     if (error==noErr) {
