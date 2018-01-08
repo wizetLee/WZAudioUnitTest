@@ -16,7 +16,7 @@
 #import "WZAudioFile.h"
 #import "WZExtendedAudioFile.h"
 #import "WZMultichannelMixerController.h"
-#import "WZMatrixMixerController.h"
+#import "WZMixterEQController.h"
 
 #define CELLID @"UITableViewCell"
 
@@ -40,10 +40,13 @@
     [self addWithClass:WZIORenderCallController.class];
     [self addWithClass:WZMIDIController.class];
     [self addWithClass:WZAVCaptureToAudioUnitController.class];
+    [self addWithClass:WZMultichannelMixerController.class];
+    [self addWithClass:WZMixterEQController.class];
+    
+    
+    
     [self addWithClass:WZAudioFile.class];
     [self addWithClass:WZExtendedAudioFile.class];
-    [self addWithClass:WZMultichannelMixerController.class];
-    [self addWithClass:WZMatrixMixerController.class];
     
 }
 

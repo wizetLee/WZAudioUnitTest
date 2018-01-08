@@ -18,6 +18,8 @@
 #import <AudioUnit/AudioUnitProperties.h>
 
 
+
+//来源http://blog.csdn.net/xiejx618/article/details/9790709
 static OSStatus CheckError(OSStatus error,const char *operaton){
     if (error==noErr) {
         return noErr;
@@ -30,7 +32,7 @@ static OSStatus CheckError(OSStatus error,const char *operaton){
     }else{
         sprintf(errorString, "%d",(int)error);
     }
-    fprintf(stderr, "Error:%s (%s) \n", operaton, errorString);
+    fprintf(stderr, "\n Error:%s (%s) \n", operaton, errorString);
     //    exit(1);
     return error;
 }

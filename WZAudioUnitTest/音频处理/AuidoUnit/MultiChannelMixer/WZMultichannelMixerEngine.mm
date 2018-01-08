@@ -38,6 +38,7 @@ typedef struct {
 @end
 
 /**
+  若干个inpout bus --->  mixer  --->  io
  若干个inpout bus --->  mixer  ---> effect ----> io
  */
 @implementation WZMultichannelMixerEngine
