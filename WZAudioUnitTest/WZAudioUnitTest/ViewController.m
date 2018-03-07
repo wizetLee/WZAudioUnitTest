@@ -44,9 +44,8 @@
     [self addWithClass:WZMixterEQController.class];
     
     
-    
-    [self addWithClass:WZAudioFile.class];
-    [self addWithClass:WZExtendedAudioFile.class];
+//    [self addWithClass:WZAudioFile.class];
+//    [self addWithClass:WZExtendedAudioFile.class];
     
 }
 
@@ -95,7 +94,6 @@
         self.table.frame = CGRectMake(0.0, top, screenW, height);
     }
 }
-
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
